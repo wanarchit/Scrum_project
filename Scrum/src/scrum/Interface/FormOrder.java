@@ -48,7 +48,7 @@ public class FormOrder extends JPanel {
         this.listAnalysis = listAnalysis;
         
         analysis = new JComboBox<Analysis>();
-        analysis.setEnabled(false);
+        
         
         
         JLabel labelTitle = new JLabel("New order");
@@ -143,13 +143,16 @@ public class FormOrder extends JPanel {
 		
 		listAnalysis.add(new ScrapieTest(s1, 1, 2));
 		listAnalysis.add(new SexingTest(s2, 1, 1, 1, 1));
+		listAnalysis.add(new SexingTest(s3, 1, 1, 1, 1));
 		listAnalysis.add(new ScrapieTest(s3, 1, 2));
 		
 		listAnalysis.add(new ScrapieTest(s5, 1, 2));
 		listAnalysis.add(new SexingTest(s4, 1, 1, 1, 1));
+		listAnalysis.add(new SexingTest(s5, 1, 1, 1, 1));
 		listAnalysis.add(new ScrapieTest(s6, 1, 2));
 		
 		listAnalysis.add(new ScrapieTest(s7, 1, 2));
+		listAnalysis.add(new SexingTest(s9, 1, 1, 1, 1));
 		listAnalysis.add(new SexingTest(s9, 1, 1, 1, 1));
 		listAnalysis.add(new ScrapieTest(s8, 1, 2));
 		
