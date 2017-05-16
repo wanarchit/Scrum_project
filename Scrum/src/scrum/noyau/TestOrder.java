@@ -1,19 +1,18 @@
 package scrum.noyau;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestCustomer {
+public class TestOrder {
 	
-	private Customer2 customer;
+	private Order order;
 
 	@Before
     public void setUp()
     {
-		customer = new Customer2("nom", "ville");
+		order = new Order(new Customer("nom", "ville"));
     }
 		
     /**
@@ -30,9 +29,7 @@ public class TestCustomer {
 	@Test
 	public void testAddOrder()
 	{ 
-		Order newOrder = new Order(customer);
-		customer.addOrder(newOrder);
-		assertEquals(true,customer.getOrders().contains(newOrder));
+		
 	}
 
 	/**
@@ -41,9 +38,7 @@ public class TestCustomer {
     @Test
 	public void testAddOrderBad()
 	{
-    	Order newOrder = new Order(customer);
-    	customer.addOrder(newOrder);
-		assertEquals(true,customer.getOrders().contains(newOrder));
-		customer.addOrder(newOrder);
+    	
 	}
+
 }
