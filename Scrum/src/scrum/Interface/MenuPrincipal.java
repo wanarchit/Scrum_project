@@ -1,14 +1,16 @@
 package scrum.Interface;
 
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import scrum.Controleur.CtrlMenuPrincipal;
+
 import scrum.Scrum;
+import scrum.Controleur.CtrlMenuPrincipal;
 import scrum.noyau.Customer2;
+import scrum.noyau.IntegrationTest;
 import scrum.noyau.Order;
 import scrum.noyau.Specie;
 import scrum.noyau.SpecieCategory;
@@ -18,6 +20,8 @@ import scrum.noyau.SpecieCategory;
  * @author Paul
  */
 public class MenuPrincipal extends JPanel{
+	
+	private IntegrationTest model;
     
     private Scrum fenetreMain;
     private JButton butFormCustomer;
@@ -32,6 +36,8 @@ public class MenuPrincipal extends JPanel{
     private ArrayList<SpecieCategory> listCategory;
     
     public MenuPrincipal(Scrum laFenetre){
+    	model = new IntegrationTest();
+    	
         fenetreMain = laFenetre;
         controleur = new CtrlMenuPrincipal(this);
         
@@ -89,8 +95,8 @@ public class MenuPrincipal extends JPanel{
     }
     
     public void afficheFormOrder(){
-        // METTRE NEW FORM ORDER
-        //fenetreMain.setContentPane(newForm);
+    	FormOrder newForm = new FormOrder(this,model.getAnalyses(),model.getCategory());
+        fenetreMain.setContentPane(newForm);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
