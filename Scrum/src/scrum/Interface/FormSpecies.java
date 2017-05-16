@@ -39,8 +39,7 @@ public class FormSpecies extends JPanel {
         JPanel panGeneral = new JPanel(new GridBagLayout());
         
         JLabel titleName = new JLabel("Name :    ");
-        fieldNom = new JTextField();
-        fieldNom.setPreferredSize(new Dimension(150, 50));
+        fieldNom = new JTextField(20);
         
         //CREATION GRIDBAG
         GridBagConstraints centreADroite = new GridBagConstraints();
