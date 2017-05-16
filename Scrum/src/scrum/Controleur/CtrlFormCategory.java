@@ -6,16 +6,19 @@
 package scrum.Controleur;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import scrum.Interface.FormCategory;
 import scrum.noyau.Customer2;
+import scrum.noyau.SpecieCategory;
 
 /**
  *
  * @author Marin
  */
-public class CtrlFormCategory {
+public class CtrlFormCategory implements ActionListener{
     private FormCategory myForm;
+    private ArrayList<SpecieCategory> listCat;
     
     public CtrlFormCategory(FormCategory form){
         myForm=form;
@@ -27,27 +30,16 @@ public class CtrlFormCategory {
             String Category = myForm.getCategory().getText();
             System.out.println("get field : "+Category);//test
             Category=Category.toLowerCase();
-            listeCat=myForm.getLeMenuP().getListCustomer();
-            
-            
-            
-            String[] words = Category.split(" ");
-            String finalName = "";
-            for(int i=0;i<words.length;i++){
-                char[] char_table = words[i].toCharArray();
-                char_table[0]=Character.toUpperCase(char_table[0]);
-                words[i] = new String(char_table);
-                if (i!= words.length-1){
-                    finalName+=words[i]+" ";
-                }else{
-                    finalName+=words[i];
+            listCat=myForm.getLeMenuP().getListCategory();
+            for(int i=0; i<listCat.size();i++){
+                if(listCat.get(i).getName() == Category){
+                    System.out.println("Specie's category already exists !");
                 }
-            }
-            
-            System.out.println("finalName = "+finalName+"!");
-            ArrayList<Customer2> listCust = myForm.getLeMenuP().getListCustomer();
-            for(Customer2 cust : listCust){
-                
+                else{
+                    System.out.println("Registering done");
+                    SpecieCategory sp= new SpecieCategory(Category);
+                    myForm.getLeMenuP().getListCategory().add(sp);  
+                }
             }
         }
     } 
