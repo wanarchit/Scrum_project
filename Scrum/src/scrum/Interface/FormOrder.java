@@ -176,11 +176,23 @@ public class FormOrder extends JPanel {
 				JOptionPane boiteDial = new JOptionPane();
                 boiteDial.showMessageDialog(null, "One field is empty", "Create order", JOptionPane.INFORMATION_MESSAGE);
 			}
-			else if(Integer.parseInt(numberSample.getText()) <= 0){
-				JOptionPane boiteDial = new JOptionPane();
-                boiteDial.showMessageDialog(null, "The number of analysis need to be upper than 0", "Create order", JOptionPane.INFORMATION_MESSAGE);
+			else{
+				try
+		        {
+		            int i= Integer.parseInt(numberSample.getText());
+		            if(i <= 0){
+						JOptionPane boiteDial = new JOptionPane();
+		                boiteDial.showMessageDialog(null, "The number of analysis needs to be upper than 0", "Create order", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else
+						myMenu.afficheMenuPrincipal();
+		        }
+		        catch(NumberFormatException e)
+		        {
+		        	JOptionPane boiteDial = new JOptionPane();
+	                boiteDial.showMessageDialog(null, "The number of analysis needs to be a numeric value", "Create order", JOptionPane.INFORMATION_MESSAGE);
+		        } 
 			}
-			else
-				myMenu.afficheMenuPrincipal();
+			
 		}
 }
