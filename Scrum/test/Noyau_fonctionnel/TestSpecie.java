@@ -1,5 +1,6 @@
-package scrum.noyau;
+package Noyau_fonctionnel;
 
+import scrum.noyau.Specie;
 import org.junit.After;
 import org.junit.Before;
 
