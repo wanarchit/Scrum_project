@@ -32,7 +32,7 @@ public class FormExploreOrder extends JPanel {
     
     
     
-    public FormExploreOrder (MenuPrincipal menu, ArrayList<Customer2> listCustomers){
+    public FormExploreOrder (MenuPrincipal menu){
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         myMenu = menu;
         controleur = new CtrlFormExploreOrder(this);

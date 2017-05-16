@@ -111,7 +111,7 @@ public class MenuPrincipal extends JPanel{
     }
     
     public void afficheFormOrder(){
-    	FormOrder newForm = new FormOrder(this,model.getAnalyses(),model.getCategory());
+    	FormOrder newForm = new FormOrder(this,model.getAnalyses(),model.getCategory(),listCustomer);
         fenetreMain.setContentPane(newForm);
         fenetreMain.repaint();
         fenetreMain.revalidate();
@@ -131,8 +131,8 @@ public class MenuPrincipal extends JPanel{
     }
     
     public void afficheExploreOrder(){
-        //
-        //fenetreMain.setContentPane(formCat);
+        FormExploreOrder expl = new FormExploreOrder(this);
+        fenetreMain.setContentPane(expl);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
