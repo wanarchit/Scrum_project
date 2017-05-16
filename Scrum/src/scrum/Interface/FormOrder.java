@@ -21,6 +21,9 @@ import javax.swing.SwingConstants;
 
 import scrum.Controleur.CtrlFormOrder;
 import scrum.noyau.Analysis;
+import scrum.noyau.Customer;
+import scrum.noyau.Customer2;
+import scrum.noyau.Order;
 import scrum.noyau.Specie;
 import scrum.noyau.SpecieCategory;
 
@@ -38,11 +41,12 @@ public class FormOrder extends JPanel {
     private JComboBox<SpecieCategory> category;
     private JComboBox<Specie> species;
     private JComboBox<Analysis> analysis;
-    
+    private JComboBox<Customer2> customers;
     private ArrayList<Analysis> listAnalysis;
     
     private JButton validateForm;
     private JButton butRetour;
+	
 
     /**
      * The constructor of the class
@@ -50,14 +54,22 @@ public class FormOrder extends JPanel {
      * @param listAnalysis All the analysys available on the application
      * @param listCategory All the categories available on the application
      */
-    public FormOrder(MenuPrincipal menu,ArrayList<Analysis> listAnalysis, ArrayList<SpecieCategory> listCategory){
+    public FormOrder(MenuPrincipal menu,ArrayList<Analysis> listAnalysis, ArrayList<SpecieCategory> listCategory, ArrayList<Customer2> listCustomer){
     	this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
     	this.myMenu = menu;
         this.controleur = new CtrlFormOrder(this);
         this.listAnalysis = listAnalysis;
         
-        analysis = new JComboBox<Analysis>();
-        
+        // Creation of the JCombobox for all the customer
+        customers = new JComboBox<Customer2>();
+        for (Customer2 customer2 : listCustomer) {
+        	customers.addItem(customer2);
+		}
+        JPanel panelComboCustomer = new JPanel();
+        panelComboCustomer.setLayout(new FlowLayout(FlowLayout.LEFT));
+        panelComboCustomer.add(new JLabel("Customer : "));
+        panelComboCustomer.add(customers);
+       
         // Title of the panel
         JLabel labelTitle = new JLabel("New order");
         labelTitle.setFont(new Font(Font.DIALOG,Font.BOLD,25));
@@ -110,6 +122,7 @@ public class FormOrder extends JPanel {
         panelComboSpecie.add(species);
         
         // Creation of the JCombobox for all the analysis
+        analysis = new JComboBox<Analysis>();
         JPanel panelComboAnalysis = new JPanel();
         panelComboAnalysis.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelComboAnalysis.add(new JLabel("Analysis"));
@@ -143,6 +156,7 @@ public class FormOrder extends JPanel {
         
         // Add all the components
         this.add(labelTitle);
+        this.add(panelComboCustomer);
         this.add(panelField1);
         this.add(panelComboCategory);
         this.add(panelComboSpecie);
@@ -214,8 +228,11 @@ public class FormOrder extends JPanel {
 					JOptionPane boiteDial = new JOptionPane();
 	                boiteDial.showMessageDialog(null, "The number of analysis needs to be upper than 0", "Create order", JOptionPane.INFORMATION_MESSAGE);
 				}
-				else
+				else{
+					myMenu.addOrder(new Order((Customer2) customers.getSelectedItem()));
 					myMenu.afficheMenuPrincipal();
+				}
+					
 	        }
 	        catch(NumberFormatException e)
 	        {
