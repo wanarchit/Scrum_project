@@ -114,6 +114,7 @@ public class FormOrder extends JPanel {
         		majSpecies(specieCategory);
         		majAnalysis((Specie) species.getSelectedItem());
         	}
+        	compteur++;
         	category.addItem(specieCategory);
 		}
         
