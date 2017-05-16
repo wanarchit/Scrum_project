@@ -102,8 +102,8 @@ public class MenuPrincipal extends JPanel{
     }
     
     public void afficheFormSpecie(){
-        // METTRE NEW FORM SPECIES
-        //fenetreMain.setContentPane(newForm);
+        FormSpecies formSpec = new FormSpecies(this);
+        fenetreMain.setContentPane(formSpec);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
