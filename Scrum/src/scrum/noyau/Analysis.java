@@ -2,7 +2,7 @@ package scrum.noyau;
 
 import java.util.*;
 
-abstract class Analysis {
+public abstract class Analysis {
   /**
    * The specie on which the analysis is defined
    */
@@ -19,6 +19,10 @@ abstract class Analysis {
 
   public final Specie getSpecie() {
     return specie;
+  }
+  
+  public final String toString(){
+	  return getName();
   }
 
   public Analysis(Specie s) {
