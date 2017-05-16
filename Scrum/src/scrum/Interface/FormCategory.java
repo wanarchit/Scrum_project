@@ -18,6 +18,7 @@ public class FormCategory extends JPanel {
     private CtrlFormCategory controleur;
     private JTextField nameCategory;
     private JButton butValidate;
+    private JButton butRetour;
     
     public FormCategory(MenuPrincipal leMenu){
         myMenu = leMenu;
@@ -40,10 +41,19 @@ public class FormCategory extends JPanel {
         butValidate.addActionListener(controleur);
         panButValid.add(butValidate);
         
+        JPanel panButRetour = new JPanel();
+        butRetour = new JButton("Retour");
+        butRetour.addActionListener(controleur);
+        panButRetour.add(butRetour);
+        
+        JPanel panButtons = new JPanel(new GridLayout(1,2));
+        panButtons.add(panButRetour);
+        panButtons.add(panButValid);
+        
         this.setLayout(new BorderLayout());
         this.add(headLabel,BorderLayout.NORTH);
         this.add(panForm,BorderLayout.CENTER);
-        this.add(panButValid,BorderLayout.SOUTH);
+        this.add(panButtons,BorderLayout.SOUTH);
         
     }
     
@@ -57,5 +67,9 @@ public class FormCategory extends JPanel {
     
     public JButton getButValid(){
         return butValidate;
+    }
+    
+    public JButton getButRetour(){
+        return butRetour;
     }
 }

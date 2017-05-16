@@ -43,6 +43,8 @@ public class CtrlFormCategory implements ActionListener{
                 myForm.getLeMenuP().afficheMenuPrincipal();
             }
             
+        }else if(e.getSource().equals(myForm.getButRetour())){
+            myForm.getLeMenuP().afficheMenuPrincipal();
         }
     } 
 }
