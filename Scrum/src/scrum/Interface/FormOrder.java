@@ -1,10 +1,13 @@
 package scrum.Interface;
 
+import java.awt.BorderLayout;
 import static javax.swing.SwingConstants.LEFT;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,27 +31,29 @@ import scrum.noyau.SpecieCategory;
 
 /**
  * Class to represent the form to add an Order
+ *
  * @author Delphine & Aurelien
  */
 public class FormOrder extends JPanel {
-    
+
     MenuPrincipal myMenu;
     private CtrlFormOrder controleur;
     private JTextField nameOrder;
     private JTextField numberSample;
-    
+
     private JComboBox<SpecieCategory> category;
     private JComboBox<Specie> species;
     private JComboBox<Analysis> analysis;
     private JComboBox<Customer2> customers;
     private ArrayList<Analysis> listAnalysis;
-    
+
     private JButton validateForm;
     private JButton butRetour;
 	
 
     /**
      * The constructor of the class
+     *
      * @param menu The main menu of our interface, to allow the redirection
      * @param listAnalysis All the analysys available on the application
      * @param listCategory All the categories available on the application
@@ -71,98 +76,137 @@ public class FormOrder extends JPanel {
        
         // Title of the panel
         JLabel labelTitle = new JLabel("New order");
-        labelTitle.setFont(new Font(Font.DIALOG,Font.BOLD,25));
+        labelTitle.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
         labelTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        
+
+        //CREATION GRIDBAG
+        JPanel panGeneral = new JPanel(new GridBagLayout());
+        GridBagConstraints centreADroite = new GridBagConstraints();
+        centreADroite.anchor = GridBagConstraints.LINE_END;
+
+        GridBagConstraints centreAGauche = new GridBagConstraints();
+        centreAGauche.anchor = GridBagConstraints.LINE_START;
+
         // The field for the name
         nameOrder = new JTextField(20);
-        JPanel panelField1 = new JPanel();
-        panelField1.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panelField1.add(new JLabel("Name of the order"));
-        panelField1.add(nameOrder);
-        
+        JLabel labelNom = new JLabel("Name of the order : ");
+        labelNom.setPreferredSize(new Dimension(200,100));
+
+        //AJOUT PANEL
+        centreADroite.gridx = 0;
+        centreADroite.gridy = 0;
+        panGeneral.add(labelNom, centreADroite);
+
+        centreAGauche.gridx = 1;
+        centreAGauche.gridy = 0;
+        panGeneral.add(nameOrder, centreAGauche);
+
         // The field for the number of sample
         numberSample = new JTextField(20);
-        JPanel panelField2 = new JPanel();
-        panelField2.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panelField2.add(new JLabel("Number of samples"));
-        panelField2.add(numberSample);
-        
+        JLabel titleSample = new JLabel("Number of samples : ");
+        titleSample.setPreferredSize(new Dimension(200,100));
+
+        centreADroite.gridx = 0;
+        centreADroite.gridy = 4;
+        centreAGauche.gridx = 1;
+        centreAGauche.gridy = 4;
+
+        panGeneral.add(titleSample, centreADroite);
+        panGeneral.add(numberSample, centreAGauche);
+
         // Creation of the JCombobox for all the category
         category = new JComboBox<SpecieCategory>();
         category.addActionListener(
-        		new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        JComboBox combo = (JComboBox)e.getSource();
-                        SpecieCategory categoryChoose = (SpecieCategory) combo.getSelectedItem();
-                        FormOrder.this.majSpecies(categoryChoose);
-                    }
-                }            
+                new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox combo = (JComboBox) e.getSource();
+                SpecieCategory categoryChoose = (SpecieCategory) combo.getSelectedItem();
+                FormOrder.this.majSpecies(categoryChoose);
+            }
+        }
         );
-        JPanel panelComboCategory = new JPanel();
-        panelComboCategory.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panelComboCategory.add(new JLabel("Category"));
-        panelComboCategory.add(category);
-        
+
+        JLabel labelCat = new JLabel("Category : ");
+        labelCat.setPreferredSize(new Dimension(200,100));
+
+        centreADroite.gridx = 0;
+        centreADroite.gridy = 1;
+        centreAGauche.gridx = 1;
+        centreAGauche.gridy = 1;
+
+        panGeneral.add(labelCat, centreADroite);
+        panGeneral.add(category, centreAGauche);
+
         // Creation of the JCombobox for all the species
         species = new JComboBox<Specie>();
         species.addActionListener(
-        		new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        JComboBox combo = (JComboBox)e.getSource();
-                        Specie specieChoose = (Specie) combo.getSelectedItem();
-                        FormOrder.this.majAnalysis(specieChoose);
-                    }
-                }            
+                new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox combo = (JComboBox) e.getSource();
+                Specie specieChoose = (Specie) combo.getSelectedItem();
+                FormOrder.this.majAnalysis(specieChoose);
+            }
+        }
         );
-        JPanel panelComboSpecie = new JPanel();
-        panelComboSpecie.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panelComboSpecie.add(new JLabel("Specie"));
-        panelComboSpecie.add(species);
-        
+
+        JLabel labelSpec = new JLabel("Specie : ");
+        labelSpec.setPreferredSize(new Dimension(200,100));
+
+        centreADroite.gridx = 0;
+        centreADroite.gridy = 2;
+        centreAGauche.gridx = 1;
+        centreAGauche.gridy = 2;
+
+        panGeneral.add(labelSpec, centreADroite);
+        panGeneral.add(species, centreAGauche);
+
         // Creation of the JCombobox for all the analysis
         analysis = new JComboBox<Analysis>();
-        JPanel panelComboAnalysis = new JPanel();
-        panelComboAnalysis.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panelComboAnalysis.add(new JLabel("Analysis"));
-        panelComboAnalysis.add(analysis);
+        
+        JLabel labelAna = new JLabel("Analysis : ");
+        labelAna.setPreferredSize(new Dimension(200,100));
+        
+        centreADroite.gridx = 0;
+        centreADroite.gridy = 3;
+        centreAGauche.gridx = 1;
+        centreAGauche.gridy = 3;
+
+        panGeneral.add(labelAna, centreADroite);
+        panGeneral.add(analysis, centreAGauche);
         
         // Initialization of the field
         int compteur = 0;
         for (SpecieCategory specieCategory : listCategory) {
-        	if(compteur == 0){
-        		majSpecies(specieCategory);
-        		majAnalysis((Specie) species.getSelectedItem());
-        	}
-        	compteur++;
-        	category.addItem(specieCategory);
-		}
-        
+            if (compteur == 0) {
+                majSpecies(specieCategory);
+                majAnalysis((Specie) species.getSelectedItem());
+            }
+            compteur++;
+            category.addItem(specieCategory);
+        }
+
         // Creation of the button to return to the main menu and the validate button
         JPanel panButValid = new JPanel();
         validateForm = new JButton("Valider");
-        validateForm.setPreferredSize(new Dimension(200,20));
-        validateForm.setFont(new Font(Font.DIALOG,Font.BOLD,17));
         validateForm.addActionListener(controleur);
         panButValid.add(validateForm);
+
         JPanel panButRetour = new JPanel();
         butRetour = new JButton("Retour");
         butRetour.addActionListener(controleur);
         panButRetour.add(butRetour);
-        JPanel panButtons = new JPanel(new GridLayout(1,2));
+
+        JPanel panButtons = new JPanel(new GridLayout(1, 2));
         panButtons.add(panButRetour);
         panButtons.add(panButValid);
-        
+
         // Add all the components
-        this.add(labelTitle);
-        this.add(panelComboCustomer);
-        this.add(panelField1);
-        this.add(panelComboCategory);
-        this.add(panelComboSpecie);
-        this.add(panelComboAnalysis);
-        this.add(panelField2);
-        this.add(panButtons);
+        this.setLayout(new BorderLayout());
+        this.add(labelTitle,BorderLayout.NORTH);
+        this.add(panGeneral, BorderLayout.CENTER);
+        this.add(panButtons, BorderLayout.SOUTH);
     }
+
 
     /**
      * Function to allow the modification of the analysis according to the specie
