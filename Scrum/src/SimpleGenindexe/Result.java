@@ -19,6 +19,7 @@ abstract class Result {
   private int readNumber;
 
   public final ResultStatus getStatus() {
+	  // TEST
     return status;
   }
 
