@@ -2,7 +2,7 @@ package scrum.noyau;
 
 import java.util.*;
 
-class SpecieCategory {
+public class SpecieCategory {
   /**
    * Set of species that belong to this category
    */
@@ -36,4 +36,7 @@ class SpecieCategory {
 	species.add(specie);
   }
 
+  public String toString(){
+	  return name;
+  }
 }
