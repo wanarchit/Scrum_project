@@ -1,4 +1,4 @@
-package Noyau;
+package scrum.noyau;
 
 class SexingTest extends Analysis {
   /**

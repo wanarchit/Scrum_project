@@ -1,4 +1,4 @@
-package Noyau;
+package scrum.noyau;
 
 /**
  * The result from an analysis for a sample

@@ -1,4 +1,4 @@
-package Noyau;
+package scrum.noyau;
 
 /**
  * List of correct values for order status

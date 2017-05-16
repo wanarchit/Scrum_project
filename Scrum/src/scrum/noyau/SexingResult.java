@@ -1,4 +1,4 @@
-package Noyau;
+package scrum.noyau;
 
 class SexingResult extends Result {
   /**

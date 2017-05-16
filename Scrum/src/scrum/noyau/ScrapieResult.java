@@ -1,4 +1,4 @@
-package Noyau;
+package scrum.noyau;
 
 public class ScrapieResult extends Result {
   /**

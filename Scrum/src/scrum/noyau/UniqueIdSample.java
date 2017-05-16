@@ -1,4 +1,4 @@
-package Noyau;
+package scrum.noyau;
 
 /**
  * Delivers a unique ID number for the samples.
