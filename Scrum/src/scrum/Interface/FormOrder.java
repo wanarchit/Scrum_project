@@ -5,6 +5,7 @@ import static javax.swing.SwingConstants.LEFT;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class FormOrder extends JPanel {
     private ArrayList<Analysis> listAnalysis;
     
     private JButton validateForm;
+    private JButton butRetour;
 
     public FormOrder(MenuPrincipal menu,ArrayList<Analysis> listAnalysis, ArrayList<SpecieCategory> listCategory){
     	this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -118,16 +120,30 @@ public class FormOrder extends JPanel {
         	category.addItem(specieCategory);
 		}
         
+        JPanel panButValid = new JPanel();
+        validateForm = new JButton("Valider");
+        validateForm.setPreferredSize(new Dimension(200,20));
+        validateForm.setFont(new Font(Font.DIALOG,Font.BOLD,17));
+        validateForm.addActionListener(controleur);
+        panButValid.add(validateForm);
+        
+        JPanel panButRetour = new JPanel();
+        butRetour = new JButton("Retour");
+        butRetour.addActionListener(controleur);
+        panButRetour.add(butRetour);
+        
+        JPanel panButtons = new JPanel(new GridLayout(1,2));
+        panButtons.add(panButRetour);
+        panButtons.add(panButValid);
+        
         this.add(labelTitle);
         this.add(panelField1);
         this.add(panelComboCategory);
         this.add(panelComboSpecie);
         this.add(panelComboAnalysis);
         this.add(panelField2);
-        validateForm = new JButton("Valider");
-        validateForm.setPreferredSize(new Dimension(200,20));
-        validateForm.setFont(new Font(Font.DIALOG,Font.BOLD,17));
-        this.add(validateForm);
+        
+        this.add(panButtons);
     }
 
 	private void majAnalysis(Specie specieChoose) {
@@ -144,6 +160,18 @@ public class FormOrder extends JPanel {
 			species.addItem(spec);
 		}
 	}
+        
+        public MenuPrincipal getLeMenuP(){
+            return myMenu;
+        }
+        
+        public JButton getButValider(){
+            return validateForm;
+        }
+        
+        public JButton getButRetour(){
+            return butRetour;
+        }
 	
 	/*public static void main (String[] args){
 		ArrayList<SpecieCategory> lesCategories = new ArrayList<SpecieCategory>();
