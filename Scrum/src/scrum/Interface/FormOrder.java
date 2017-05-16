@@ -117,7 +117,9 @@ public class FormOrder extends JPanel {
         this.add(panelComboSpecie);
         this.add(panelComboAnalysis);
         this.add(panelField2);
-        
+        validateForm = new JButton("Valider");
+        validateForm.setPreferredSize(new Dimension(200,200));
+        this.add(validateForm);
     }
 
 	private void majAnalysis(Specie specieChoose) {
