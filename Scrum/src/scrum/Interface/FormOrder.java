@@ -118,7 +118,7 @@ public class FormOrder extends JPanel {
         this.add(panelComboAnalysis);
         this.add(panelField2);
         validateForm = new JButton("Valider");
-        validateForm.setPreferredSize(new Dimension(200,200));
+        validateForm.setPreferredSize(new Dimension(200,20));
         validateForm.setFont(new Font(Font.DIALOG,Font.BOLD,17));
         this.add(validateForm);
     }
