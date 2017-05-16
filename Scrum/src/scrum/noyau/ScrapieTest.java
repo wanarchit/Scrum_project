@@ -33,8 +33,5 @@ public class ScrapieTest extends Analysis {
     return scrapieSensibility;
   }
   
-  public String toString() {
-		return getName();
-}
 
 }

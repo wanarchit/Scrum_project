@@ -20,6 +20,10 @@ public abstract class Analysis {
   public final Specie getSpecie() {
     return specie;
   }
+  
+  public final String toString(){
+	  return getName();
+  }
 
   public Analysis(Specie s) {
 	specie = s;

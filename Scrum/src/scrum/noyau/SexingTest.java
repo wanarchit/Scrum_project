@@ -42,9 +42,5 @@ public class SexingTest extends Analysis {
   public final RawData getFemaleValue() {
     return femaleValue;
   }
-  
-  public String toString() {
-		return getName();
-  }
 
 }
