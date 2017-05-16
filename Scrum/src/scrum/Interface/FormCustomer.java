@@ -20,6 +20,7 @@ public class FormCustomer extends JPanel{
     private JTextField nameCustomer;
     private JTextField cityCustomer;
     private JButton butValidate;
+    private JButton butRetour;
     
     public FormCustomer(MenuPrincipal leMenu){
         myMenu = leMenu;
@@ -48,10 +49,19 @@ public class FormCustomer extends JPanel{
         butValidate.addActionListener(controleur);
         panButValid.add(butValidate);
         
+        JPanel panButRetour = new JPanel();
+        butRetour = new JButton("Retour");
+        butRetour.addActionListener(controleur);
+        panButRetour.add(butRetour);
+        
+        JPanel panButtons = new JPanel(new GridLayout(1,2));
+        panButtons.add(panButRetour);
+        panButtons.add(panButValid);
+        
         this.setLayout(new BorderLayout());
         this.add(headLabel,BorderLayout.NORTH);
         this.add(panForm,BorderLayout.CENTER);
-        this.add(panButValid,BorderLayout.SOUTH);
+        this.add(panButtons,BorderLayout.SOUTH);
         
     }
     
@@ -69,5 +79,9 @@ public class FormCustomer extends JPanel{
     
     public JButton getButValid(){
         return butValidate;
+    }
+    
+    public JButton getButRetour(){
+        return butRetour;
     }
 }
