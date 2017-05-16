@@ -13,16 +13,14 @@ import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import scrum.Controleur.CtrlFormOrder;
 import scrum.noyau.Analysis;
-import scrum.noyau.ScrapieTest;
-import scrum.noyau.SexingTest;
 import scrum.noyau.Specie;
 import scrum.noyau.SpecieCategory;
 
@@ -172,58 +170,17 @@ public class FormOrder extends JPanel {
         public JButton getButRetour(){
             return butRetour;
         }
-	
-	/*public static void main (String[] args){
-		ArrayList<SpecieCategory> lesCategories = new ArrayList<SpecieCategory>();
-		ArrayList<Analysis> listAnalysis = new ArrayList<Analysis>();
-		Specie s1 = new Specie("specie1");
-		Specie s2 = new Specie("specie2");
-		Specie s3 = new Specie("specie3");
-		
-		Specie s4 = new Specie("specie4");
-		Specie s5 = new Specie("specie5");
-		Specie s6 = new Specie("specie6");
-		
-		Specie s7 = new Specie("specie7");
-		Specie s8 = new Specie("specie8");
-		Specie s9 = new Specie("specie9");
-		
-		listAnalysis.add(new ScrapieTest(s1, 1, 2));
-		listAnalysis.add(new SexingTest(s2, 1, 1, 1, 1));
-		listAnalysis.add(new SexingTest(s3, 1, 1, 1, 1));
-		listAnalysis.add(new ScrapieTest(s3, 1, 2));
-		
-		listAnalysis.add(new ScrapieTest(s5, 1, 2));
-		listAnalysis.add(new SexingTest(s4, 1, 1, 1, 1));
-		listAnalysis.add(new SexingTest(s5, 1, 1, 1, 1));
-		listAnalysis.add(new ScrapieTest(s6, 1, 2));
-		
-		listAnalysis.add(new ScrapieTest(s7, 1, 2));
-		listAnalysis.add(new SexingTest(s9, 1, 1, 1, 1));
-		listAnalysis.add(new SexingTest(s9, 1, 1, 1, 1));
-		listAnalysis.add(new ScrapieTest(s8, 1, 2));
-		
-		SpecieCategory sp1 = new SpecieCategory("Bird");
-		sp1.addSpecie(s1);
-		sp1.addSpecie(s2);
-		sp1.addSpecie(s3);
-		SpecieCategory sp2 = new SpecieCategory("Dog");
-		sp2.addSpecie(s4);
-		sp2.addSpecie(s5);
-		sp2.addSpecie(s6);
-		SpecieCategory sp3 = new SpecieCategory("Cat");
-		sp3.addSpecie(s7);
-		sp3.addSpecie(s8);
-		sp3.addSpecie(s9);
-		
-		lesCategories.add(sp1);
-		lesCategories.add(sp2);
-		lesCategories.add(sp3);
-		
-		JFrame t = new JFrame();
-		t.setVisible(true);
-		t.setPreferredSize(new Dimension(500,500));
-		t.add(new FormOrder(null, listAnalysis, lesCategories));
-		t.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}*/
+
+		public void validationForm() {
+			if(numberSample.getText().isEmpty() || nameOrder.getText().isEmpty()){
+				JOptionPane boiteDial = new JOptionPane();
+                boiteDial.showMessageDialog(null, "One field is empty", "Create order", JOptionPane.INFORMATION_MESSAGE);
+			}
+			else if(Integer.parseInt(numberSample.getText()) <= 0){
+				JOptionPane boiteDial = new JOptionPane();
+                boiteDial.showMessageDialog(null, "The number of analysis need to be upper than 0", "Create order", JOptionPane.INFORMATION_MESSAGE);
+			}
+			else
+				myMenu.afficheMenuPrincipal();
+		}
 }
