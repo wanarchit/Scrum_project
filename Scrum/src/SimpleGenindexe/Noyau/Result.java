@@ -1,3 +1,4 @@
+package Noyau;
 
 /**
  * The result from an analysis for a sample

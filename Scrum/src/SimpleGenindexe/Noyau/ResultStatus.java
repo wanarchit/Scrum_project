@@ -1,3 +1,4 @@
+package Noyau;
 
 public enum ResultStatus {
   UNREADABLE,/**

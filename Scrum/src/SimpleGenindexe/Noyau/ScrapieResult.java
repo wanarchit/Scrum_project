@@ -1,3 +1,4 @@
+package Noyau;
 
 public class ScrapieResult extends Result {
   /**

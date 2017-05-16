@@ -1,3 +1,4 @@
+package Noyau;
 
 /**
  * Delivers a unique ID number for the samples.

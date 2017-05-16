@@ -1,3 +1,4 @@
+package Noyau;
 
 /**
  * List of correct values for order status
