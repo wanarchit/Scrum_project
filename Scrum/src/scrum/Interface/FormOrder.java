@@ -111,7 +111,7 @@ public class FormOrder extends JPanel {
     }
 
 	private void majAnalysis(Specie specieChoose) {
-		analysis.removeAll();
+		analysis = new JComboBox<Analysis>();
 		for (Analysis analys : listAnalysis) {
 			if(analys.getSpecie().equals(specieChoose))
 				analysis.addItem(analys);
@@ -119,7 +119,7 @@ public class FormOrder extends JPanel {
 	}
 
 	private void majSpecies(SpecieCategory categoryChoose) {
-		species.removeAll();
+		species = new JComboBox<Specie>();
 		for (Specie spec : categoryChoose.getSpecies()) {
 			species.addItem(spec);
 		}

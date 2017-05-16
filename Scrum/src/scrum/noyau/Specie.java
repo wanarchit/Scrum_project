@@ -15,5 +15,9 @@ public class Specie {
   public final String getName() {
     return name;
   }
+  
+  public String toString(){
+	  return getName();
+  }
 
 }
