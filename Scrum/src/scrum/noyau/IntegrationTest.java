@@ -151,7 +151,18 @@ public class IntegrationTest
         sc.addSpecie(s);
         sxt = new SexingTest(s,133,35,135,67);
         theAnalyses.add(sxt);
-       
+    }
+    
+    public ArrayList<SpecieCategory> getCategory(){
+    	return theCategories;
+    }
+    
+    public ArrayList<Analysis> getAnalyses(){
+    	return theAnalyses;
+    }
+    
+    public ArrayList<Customer> getCustomer(){
+    	return theCustomers;
     }
 
 }
