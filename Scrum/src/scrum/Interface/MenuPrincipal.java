@@ -37,7 +37,10 @@ public class MenuPrincipal extends JPanel{
         
         // Import of data
         listCustomer = new ArrayList();
-        
+        listOrder = new ArrayList();
+        listSpecie = new ArrayList();
+        listCategory = new ArrayList();
+                
         JLabel textMenu = new JLabel("Main menu");
         textMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         butFormCustomer = new JButton("Create a customer");
@@ -99,8 +102,8 @@ public class MenuPrincipal extends JPanel{
         fenetreMain.revalidate();
     }
     public void afficheFormCategory(){
-        // METTRE NEW FORM CATEGORY
-        //fenetreMain.setContentPane(newForm);
+        FormCategory formCat = new FormCategory(this);
+        fenetreMain.setContentPane(formCat);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
