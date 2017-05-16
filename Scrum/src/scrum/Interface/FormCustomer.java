@@ -1,7 +1,11 @@
 package scrum.Interface;
 
 import java.awt.BorderLayout;
+import static java.awt.BorderLayout.LINE_END;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,35 +25,65 @@ public class FormCustomer extends JPanel{
     private JTextField cityCustomer;
     private JButton butValidate;
     private JButton butRetour;
-    private JButton toto;
     
     public FormCustomer(MenuPrincipal leMenu){
         myMenu = leMenu;
         controleur = new CtrlFormCustomer(this);
         
+        // Title
         JLabel headLabel = new JLabel("New Customer");
-        headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.ITALIC,16));
+        headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
         headLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
+        // Panel form
+        
+        JPanel panForm = new JPanel(new BorderLayout());
+        JPanel panCenterForm = new JPanel (new GridBagLayout());
+         
+      
+        JPanel panCorpo = new JPanel ();
+        JPanel panCity = new JPanel ();
+        
+        JPanel panCorpoField = new JPanel ();
+        JPanel panCityField = new JPanel ();
+        
+        
+        // Customer
         nameCustomer = new JTextField(20);
-        JPanel panField1 = new JPanel();
-        panField1.add(new JLabel("Corporation :  "));
-        panField1.add(nameCustomer);
+        panCorpo.add(new JLabel("Corporation :  "));
+        panCorpoField.add(nameCustomer);
         
         cityCustomer = new JTextField(20);
-        JPanel panField2 = new JPanel();
-        panField2.add(new JLabel("City :  "));
-        panField2.add(cityCustomer);
+        panCity.add(new JLabel("City :  "));
+        panCityField.add(cityCustomer);
         
-        JPanel panForm = new JPanel(new GridLayout(2,1));
-        panForm.add(panField1);
-        panForm.add(panField2);
+        GridBagConstraints RightCenter = new GridBagConstraints();
+        RightCenter.anchor = GridBagConstraints.LINE_END;
+        RightCenter.gridx = 0;
+        RightCenter.gridy = 0;
         
+        GridBagConstraints LeftCenter = new GridBagConstraints();
+        LeftCenter.anchor = GridBagConstraints.LINE_START;
+        LeftCenter.gridx = 1;
+        LeftCenter.gridy = 0;
+      
+
+        panCenterForm.add(panCorpo, RightCenter);
+        panCenterForm.add(panCorpoField, LeftCenter);
+        RightCenter.gridx = 0;
+        RightCenter.gridy = 1;
+        panCenterForm.add(panCity, RightCenter);
+        LeftCenter.gridx = 1;
+        LeftCenter.gridy = 1;
+        panCenterForm.add(panCityField,LeftCenter);
+        
+        panForm.add(panCenterForm,BorderLayout.CENTER);
+
+
         JPanel panButValid = new JPanel();
         butValidate = new JButton("Validation");
         butValidate.addActionListener(controleur);
         panButValid.add(butValidate);
-        
         
         JPanel panButRetour = new JPanel();
         butRetour = new JButton("Retour");

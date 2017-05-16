@@ -21,7 +21,6 @@ import javax.swing.SwingConstants;
 
 import scrum.Controleur.CtrlFormOrder;
 import scrum.noyau.Analysis;
-import scrum.noyau.Customer;
 import scrum.noyau.Customer2;
 import scrum.noyau.Order;
 import scrum.noyau.Specie;
