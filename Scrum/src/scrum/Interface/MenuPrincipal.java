@@ -50,6 +50,12 @@ public class MenuPrincipal extends JPanel{
         fenetreMain.revalidate();
     }
     
+    public void afficheMenuPrincipal(){
+        fenetreMain.setContentPane(this);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+    }
+    
     public ArrayList<Customer2> getListCustomer(){
         return listCustomer;
     }
