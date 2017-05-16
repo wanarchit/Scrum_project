@@ -39,12 +39,15 @@ class Customer {
   }
 
   /**
-   * Adds an order for this customer
+   * Adds an order for this customer if this order doesn't exist
    * 
    * @param theOrder the order to be added
    */
-  public void addOrder(Order theOrder) {
-	orders.add(theOrder);
+  public boolean addOrder(Order theOrder) {
+	  if(!orders.contains(theOrder))
+		  return orders.add(theOrder);
+	  else
+		  return false;
   }
 
   public final List<Order> getOrders() {
