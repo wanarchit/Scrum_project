@@ -37,6 +37,7 @@ public class MenuPrincipal extends JPanel{
     private ArrayList<Order> listOrder;
     private ArrayList<Specie> listSpecie;
     private ArrayList<SpecieCategory> listCategory;
+    private String toto;
     
     public MenuPrincipal(Scrum laFenetre){
     	model = new IntegrationTest();
