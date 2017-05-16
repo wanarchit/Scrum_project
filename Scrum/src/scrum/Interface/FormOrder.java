@@ -9,12 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import scrum.Controleur.CtrlFormOrder;
 import scrum.noyau.Analysis;
@@ -43,25 +45,26 @@ public class FormOrder extends JPanel {
     private JButton validateForm;
 
     public FormOrder(MenuPrincipal menu,ArrayList<Analysis> listAnalysis, ArrayList<SpecieCategory> listCategory){
+    	this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         myMenu = menu;
         controleur = new CtrlFormOrder(this);
         this.listAnalysis = listAnalysis;
         
         analysis = new JComboBox<Analysis>();
         
-        
-        
         JLabel labelTitle = new JLabel("New order");
-        labelTitle.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
-        labelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitle.setFont(new Font(Font.DIALOG,Font.BOLD,25));
+        labelTitle.setHorizontalAlignment(SwingConstants.CENTER);
         
         nameOrder = new JTextField(20);
         JPanel panelField1 = new JPanel();
+        panelField1.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelField1.add(new JLabel("Name of the order"));
         panelField1.add(nameOrder);
         
         numberSample = new JTextField(20);
         JPanel panelField2 = new JPanel();
+        panelField2.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelField2.add(new JLabel("Number of samples"));
         panelField2.add(numberSample);
         
@@ -80,6 +83,7 @@ public class FormOrder extends JPanel {
                 }            
         );
         JPanel panelComboCategory = new JPanel();
+        panelComboCategory.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelComboCategory.add(new JLabel("Category"));
         panelComboCategory.add(category);
         
@@ -95,19 +99,24 @@ public class FormOrder extends JPanel {
                 }            
         );
         JPanel panelComboSpecie = new JPanel();
+        panelComboSpecie.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelComboSpecie.add(new JLabel("Specie"));
         panelComboSpecie.add(species);
         
         JPanel panelComboAnalysis = new JPanel();
+        panelComboAnalysis.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelComboAnalysis.add(new JLabel("Analysis"));
         panelComboAnalysis.add(analysis);
         
         
         JPanel panelForm = new JPanel(new FlowLayout(LEFT));
         
+        this.add(labelTitle);
+        this.add(panelField1);
         this.add(panelComboCategory);
         this.add(panelComboSpecie);
         this.add(panelComboAnalysis);
+        this.add(panelField2);
         
     }
 
