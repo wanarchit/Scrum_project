@@ -19,7 +19,7 @@ public class CtrlFormOrder implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(monFormulaire.getButValider())){
-            //
+        	monFormulaire.validationForm();
         }else if(e.getSource().equals(monFormulaire.getButRetour())){
             monFormulaire.getLeMenuP().afficheMenuPrincipal();
         }

@@ -53,23 +53,25 @@ public class CtrlFormSpecie implements ActionListener {
                 if (nameVal) {
                     Specie newSpecie = new Specie(finalSpecieName);
                     monFormulaire.getLeMenu().getListSpecie().add(newSpecie);
-                    
+
                     ArrayList<SpecieCategory> listCategory = monFormulaire.getLeMenu().getListCategory();
                     for (SpecieCategory specat : listCategory) {
-                        if (specat.equals(monFormulaire.getValCombo())){
+                        if (specat.equals(monFormulaire.getValCombo())) {
                             specat.addSpecie(newSpecie);
                         }
                     }
-                    
+
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "The new specie is registered", "Create specie", JOptionPane.INFORMATION_MESSAGE);
                     monFormulaire.getLeMenu().afficheMenuPrincipal();
-                }else {
+                } else {
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "This specie already exists in the data", "Create specie", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
+        } else if (e.getSource().equals(monFormulaire.getButRetour())) {
+            monFormulaire.getLeMenu().afficheMenuPrincipal();
         }
     }
-
 }
+
