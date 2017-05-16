@@ -5,17 +5,39 @@
  */
 package scrum;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import scrum.Interface.MenuPrincipal;
+
 /**
  *
  * @author Paul
  */
-public class Scrum {
-
+public class Scrum extends JFrame{
+    
+    private MenuPrincipal menuPrincipal;
+    
+    public Scrum(){
+        menuPrincipal = new MenuPrincipal(this);
+        
+        this.add(menuPrincipal);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Genindexe");
+        this.setSize(1200, 700);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args)
+    {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Scrum();
+            }
+        });
     }
     
 }
