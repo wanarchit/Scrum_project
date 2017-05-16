@@ -64,8 +64,7 @@ public class FormOrder extends JPanel {
         panelField2.add(new JLabel("Number of samples"));
         panelField2.add(numberSample);
         
-        JPanel panelComboCategory = new JPanel();
-        panelComboCategory.add(new JLabel("Category"));
+        
         category = new JComboBox<SpecieCategory>();
         for (SpecieCategory specieCategory : listCategory) {
         	category.addItem(specieCategory);
@@ -79,6 +78,10 @@ public class FormOrder extends JPanel {
                     }
                 }            
         );
+        JPanel panelComboCategory = new JPanel();
+        panelComboCategory.add(new JLabel("Category"));
+        panelComboCategory.add(category);
+        
         
         species = new JComboBox<Specie>();
         species.addActionListener(
@@ -90,9 +93,20 @@ public class FormOrder extends JPanel {
                     }
                 }            
         );
+        JPanel panelComboSpecie = new JPanel();
+        panelComboSpecie.add(new JLabel("Specie"));
+        panelComboSpecie.add(species);
+        
+        JPanel panelComboAnalysis = new JPanel();
+        panelComboAnalysis.add(new JLabel("Analysis"));
+        panelComboAnalysis.add(analysis);
         
         
         JPanel panelForm = new JPanel(new FlowLayout(LEFT));
+        
+        this.add(panelComboCategory);
+        this.add(panelComboSpecie);
+        this.add(panelComboAnalysis);
         
     }
 
