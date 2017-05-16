@@ -28,6 +28,9 @@ public class MenuPrincipal extends JPanel{
     private JButton butFormOrder;
     private JButton butFormSpecie;
     private JButton butFormCategory;
+    private JButton butExploreOrder;
+    private JButton butFormScrapie;
+    
     private CtrlMenuPrincipal controleur;
     
     private ArrayList<Customer2> listCustomer;
@@ -57,14 +60,19 @@ public class MenuPrincipal extends JPanel{
         butFormSpecie.addActionListener(controleur);
         butFormCategory = new JButton("Create a category");
         butFormCategory.addActionListener(controleur);
-        
-        this.setLayout(new GridLayout(5,1));
+        butExploreOrder = new JButton("Explore an order");
+        butExploreOrder.addActionListener(controleur);
+        butFormScrapie = new JButton("Create Scrapie Test");
+        butFormScrapie.addActionListener(controleur);
+                
+        this.setLayout(new GridLayout(7,1));
         this.add(textMenu);
         this.add(butFormCustomer);
         this.add(butFormOrder);
         this.add(butFormSpecie);
         this.add(butFormCategory);
-        
+        this.add(butExploreOrder);
+        this.add(butFormScrapie);
     }
     
     public Scrum getFenetreMain(){
@@ -85,6 +93,14 @@ public class MenuPrincipal extends JPanel{
     
     public JButton getButFormCategory(){
         return butFormCategory;
+    }
+    
+    public JButton getButExploreOrder(){
+        return butExploreOrder;
+    }
+    
+    public JButton getButFormScrapie(){
+        return butFormScrapie;
     }
     
     public void afficheFormCustomer(){
@@ -110,6 +126,20 @@ public class MenuPrincipal extends JPanel{
     public void afficheFormCategory(){
         FormCategory formCat = new FormCategory(this);
         fenetreMain.setContentPane(formCat);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+    }
+    
+    public void afficheExploreOrder(){
+        //
+        //fenetreMain.setContentPane(formCat);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+    }
+    
+    public void afficheFormScrapie(){
+        //
+        //fenetreMain.setContentPane(formCat);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
