@@ -131,22 +131,39 @@ public class FormOrder extends JPanel {
 		Specie s1 = new Specie("specie1");
 		Specie s2 = new Specie("specie2");
 		Specie s3 = new Specie("specie3");
+		
+		Specie s4 = new Specie("specie4");
+		Specie s5 = new Specie("specie5");
+		Specie s6 = new Specie("specie6");
+		
+		Specie s7 = new Specie("specie7");
+		Specie s8 = new Specie("specie8");
+		Specie s9 = new Specie("specie9");
+		
 		listAnalysis.add(new ScrapieTest(s1, 1, 2));
 		listAnalysis.add(new SexingTest(s2, 1, 1, 1, 1));
 		listAnalysis.add(new ScrapieTest(s3, 1, 2));
+		
+		listAnalysis.add(new ScrapieTest(s5, 1, 2));
+		listAnalysis.add(new SexingTest(s4, 1, 1, 1, 1));
+		listAnalysis.add(new ScrapieTest(s6, 1, 2));
+		
+		listAnalysis.add(new ScrapieTest(s7, 1, 2));
+		listAnalysis.add(new SexingTest(s9, 1, 1, 1, 1));
+		listAnalysis.add(new ScrapieTest(s8, 1, 2));
 		
 		SpecieCategory sp1 = new SpecieCategory("Bird");
 		sp1.addSpecie(s1);
 		sp1.addSpecie(s2);
 		sp1.addSpecie(s3);
 		SpecieCategory sp2 = new SpecieCategory("Dog");
-		sp2.addSpecie(s1);
-		sp2.addSpecie(s2);
-		sp2.addSpecie(s3);
+		sp2.addSpecie(s4);
+		sp2.addSpecie(s5);
+		sp2.addSpecie(s6);
 		SpecieCategory sp3 = new SpecieCategory("Cat");
-		sp2.addSpecie(s1);
-		sp2.addSpecie(s2);
-		sp2.addSpecie(s3);
+		sp3.addSpecie(s7);
+		sp3.addSpecie(s8);
+		sp3.addSpecie(s9);
 		
 		lesCategories.add(sp1);
 		lesCategories.add(sp2);
