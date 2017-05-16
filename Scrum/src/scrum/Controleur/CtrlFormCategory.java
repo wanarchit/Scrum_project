@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package scrum.Controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import scrum.Interface.FormCategory;
 import scrum.noyau.Customer2;
 import scrum.noyau.SpecieCategory;
@@ -30,17 +26,23 @@ public class CtrlFormCategory implements ActionListener{
             String Category = myForm.getCategory().getText();
             System.out.println("get field : "+Category);//test
             Category=Category.toLowerCase();
-            listCat=myForm.getLeMenuP().getListCategory();
-            for(int i=0; i<listCat.size();i++){
-                if(listCat.get(i).getName() == Category){
-                    System.out.println("Specie's category already exists !");
-                }
-                else{
-                    System.out.println("Registering done");
-                    SpecieCategory sp= new SpecieCategory(Category);
-                    myForm.getLeMenuP().getListCategory().add(sp);  
+            
+            boolean validation = true;
+            for(SpecieCategory cat : myForm.getLeMenuP().getListCategory()){
+                if(cat.getName().equals(Category)){
+                    validation = false;
+                    JOptionPane boiteDial = new JOptionPane();
+                    boiteDial.showMessageDialog(null, "Specie's category already exists !", "Create category", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
+            if(validation){
+                JOptionPane boiteDial = new JOptionPane();
+                boiteDial.showMessageDialog(null, "Registering done", "Create category", JOptionPane.INFORMATION_MESSAGE);
+                SpecieCategory sp= new SpecieCategory(Category);
+                myForm.getLeMenuP().getListCategory().add(sp);
+                myForm.getLeMenuP().afficheMenuPrincipal();
+            }
+            
         }
     } 
 }
