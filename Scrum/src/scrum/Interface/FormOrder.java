@@ -162,10 +162,17 @@ public class FormOrder extends JPanel {
 
         // Creation of the JCombobox for all the analysis
         analysis = new JComboBox<Analysis>();
-        JPanel panelComboAnalysis = new JPanel();
-        panelComboAnalysis.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panelComboAnalysis.add(new JLabel("Analysis"));
-        panelComboAnalysis.add(analysis);
+        
+        JLabel labelAna = new JLabel("Analysis : ");
+        labelAna.setPreferredSize(new Dimension(200,100));
+        
+        centreADroite.gridx = 0;
+        centreADroite.gridy = 3;
+        centreAGauche.gridx = 1;
+        centreAGauche.gridy = 3;
+
+        panGeneral.add(labelAna, centreADroite);
+        panGeneral.add(analysis, centreAGauche);
         
         // Initialization of the field
         int compteur = 0;
@@ -194,77 +201,66 @@ public class FormOrder extends JPanel {
         panButtons.add(panButValid);
 
         // Add all the components
-        this.add(labelTitle);
-        this.add(panelComboCustomer);
-        this.add(panelField1);
-        this.add(panelComboCategory);
-        this.add(panelComboSpecie);
-        this.add(panelComboAnalysis);
-        this.add(panelField2);
-        this.add(panButtons);
+        this.setLayout(new BorderLayout());
+        this.add(labelTitle,BorderLayout.NORTH);
+        this.add(panGeneral, BorderLayout.CENTER);
+        this.add(panButtons, BorderLayout.SOUTH);
     }
 
+
     /**
-     * Function to allow the modification of the analysis according to the
-     * specie
-     *
+     * Function to allow the modification of the analysis according to the specie
      * @param specieChoose The specie choosen
      */
-    private void majAnalysis(Specie specieChoose) {
-        analysis.removeAllItems();
-        for (Analysis analys : listAnalysis) {
-            if (analys.getSpecie().equals(specieChoose)) {
-                analysis.addItem(analys);
-            }
-        }
-    }
+	private void majAnalysis(Specie specieChoose) {
+		analysis.removeAllItems();
+		for (Analysis analys : listAnalysis) {
+			if(analys.getSpecie().equals(specieChoose))
+				analysis.addItem(analys);
+		}
+	}
 
-    /**
-     * Function to allow the modification of the species according to the
-     * category
-     *
-     * @param categoryChoose The category choosen
-     */
-    private void majSpecies(SpecieCategory categoryChoose) {
-        species.removeAllItems();
-        for (Specie spec : categoryChoose.getSpecies()) {
-            species.addItem(spec);
-        }
-    }
-
-    /**
-     * Function to get the main menu
-     *
-     * @return The main menu
-     */
-    public MenuPrincipal getLeMenuP() {
+	/**
+	 * Function to allow the modification of the species according to the category
+	 * @param categoryChoose The category choosen
+	 */
+	private void majSpecies(SpecieCategory categoryChoose) {
+		species.removeAllItems();
+		for (Specie spec : categoryChoose.getSpecies()) {
+			species.addItem(spec);
+		}
+	}
+        
+	/**
+	 * Function to get the main menu
+	 * @return The main menu
+	 */
+    public MenuPrincipal getLeMenuP(){
         return myMenu;
     }
-
+    
     /**
      * Function to get the validating button
-     *
      * @return The button to validate
      */
-    public JButton getButValider() {
+    public JButton getButValider(){
         return validateForm;
     }
-
+    
     /**
      * Function to get the return button
-     *
      * @return The button to return to the main menu
      */
-    public JButton getButRetour() {
+    public JButton getButRetour(){
         return butRetour;
     }
 
     /**
      * Function to validate all the forms according to the specification
      */
-    public void validationForm() {
-        if (numberSample.getText().isEmpty() || nameOrder.getText().isEmpty()) {
-            JOptionPane boiteDial = new JOptionPane();
+	public void validationForm() {
+		if(numberSample.getText().isEmpty() || nameOrder.getText().isEmpty()){
+			JOptionPane boiteDial = new JOptionPane();
             boiteDial.showMessageDialog(null, "One field is empty", "Create order", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else{
@@ -285,8 +281,8 @@ public class FormOrder extends JPanel {
 	        {
 	        	JOptionPane boiteDial = new JOptionPane();
                 boiteDial.showMessageDialog(null, "The number of analysis needs to be a numeric value", "Create order", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
-
-    }
+	        } 
+		}
+		
+	}
 }
