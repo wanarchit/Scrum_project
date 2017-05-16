@@ -21,6 +21,7 @@ public class FormCustomer extends JPanel{
     private JTextField cityCustomer;
     private JButton butValidate;
     private JButton butRetour;
+    private JButton toto;
     
     public FormCustomer(MenuPrincipal leMenu){
         myMenu = leMenu;
@@ -48,6 +49,7 @@ public class FormCustomer extends JPanel{
         butValidate = new JButton("Validation");
         butValidate.addActionListener(controleur);
         panButValid.add(butValidate);
+        
         
         JPanel panButRetour = new JPanel();
         butRetour = new JButton("Retour");
