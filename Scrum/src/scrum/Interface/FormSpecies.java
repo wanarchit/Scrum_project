@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import static java.awt.GridBagConstraints.LINE_END;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -33,17 +36,31 @@ public class FormSpecies extends JPanel {
         headTitle.setFont(new java.awt.Font(Font.DIALOG, Font.BOLD, 20));
         headTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        JPanel nom = new JPanel();
-        nom.setLayout(new FlowLayout(FlowLayout.LEFT));
-        JLabel titleName = new JLabel("Name :");
+        JPanel panGeneral = new JPanel(new GridBagLayout());
+        
+        JLabel titleName = new JLabel("Name :    ");
         fieldNom = new JTextField();
         fieldNom.setPreferredSize(new Dimension(150, 50));
-        nom.add(titleName);
-        nom.add(fieldNom);
+        
+        //CREATION GRIDBAG
+        GridBagConstraints centreADroite = new GridBagConstraints();
+        centreADroite.anchor = GridBagConstraints.LINE_END;
+        
+        GridBagConstraints centreAGauche = new GridBagConstraints();
+        centreAGauche.anchor = GridBagConstraints.LINE_START;
+
+        //AJOUT PANEL
+        centreADroite.gridx=0;
+        centreADroite.gridy=0;
+        panGeneral.add(titleName,centreADroite);
+        
+        centreAGauche.gridx=1;
+        centreAGauche.gridy=0;
+        panGeneral.add(fieldNom,centreAGauche);
 
         JPanel category = new JPanel();
         category.setLayout(new FlowLayout(FlowLayout.LEFT));
-        JLabel titleCategory = new JLabel("Category :");
+        JLabel titleCategory = new JLabel("Category :    ");
         combo = new JComboBox();
         for (SpecieCategory specieCategory : menu.getListCategory()) {
             combo.addItem(specieCategory);
@@ -51,9 +68,13 @@ public class FormSpecies extends JPanel {
         category.add(titleCategory);
         category.add(combo);
         
-        JPanel form = new JPanel(new BorderLayout());
-        form.add(nom, BorderLayout.NORTH);
-        form.add(category, BorderLayout.CENTER);
+        centreADroite.gridx=0;
+        centreADroite.gridy=1;    
+        centreAGauche.gridx=1;
+        centreAGauche.gridy=1;
+
+        panGeneral.add(titleCategory,centreADroite);
+        panGeneral.add(combo,centreAGauche);
         
         JPanel panButValid = new JPanel();
         valider = new JButton("Validation");
@@ -71,7 +92,7 @@ public class FormSpecies extends JPanel {
         
         this.setLayout(new BorderLayout());
         this.add(headTitle,BorderLayout.NORTH);
-        this.add(form, BorderLayout.WEST);
+        this.add(panGeneral, BorderLayout.CENTER);
         this.add(panButtons, BorderLayout.SOUTH);
     }
 

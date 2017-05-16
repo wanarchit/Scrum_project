@@ -164,6 +164,11 @@ public class MenuPrincipal extends JPanel{
     
     public ArrayList<SpecieCategory> getListCategory(){
         return listCategory;
-    }  
+    }
+    
+    public void addOrder(Order newOrder){
+    	if(!this.listOrder.contains(newOrder))
+    		this.listOrder.add(newOrder);
+    }
     
 }
