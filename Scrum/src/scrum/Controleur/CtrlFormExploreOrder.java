@@ -23,7 +23,7 @@ public class CtrlFormExploreOrder implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(formulaire.getValidate())){
-        	formulaire.validate();
+        	formulaire.validation();
         }else if(e.getSource().equals(formulaire.getRetour())){
             formulaire.getMenuPrincipal().afficheMenuPrincipal();
         }

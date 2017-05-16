@@ -81,6 +81,10 @@ public class FormExploreOrder extends JPanel {
     public JButton getRetour(){
         return retour;
     }
+
+	public void validation() {
+		myMenu.goListOrder(customer.getSelectedItem());
+	}
     
     
 }

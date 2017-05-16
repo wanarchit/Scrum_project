@@ -172,5 +172,9 @@ public class MenuPrincipal extends JPanel{
     	listOrder.add(newOrder);
     	customer.addOrder(newOrder);
     }
+
+	public void goListOrder(Customer customer) {
+		new ListOrder(customer);
+	}
     
 }

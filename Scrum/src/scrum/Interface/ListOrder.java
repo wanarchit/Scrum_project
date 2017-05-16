@@ -19,6 +19,9 @@ public class ListOrder extends JFrame{
 	private JTable tableOrders;
 	
 	public ListOrder(Customer customer){
+		this.pack();
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Orders list of "+customer.getName()+" from "+customer.getTown());
 		this.customer = customer;
 		this.setLayout(new GridLayout());
