@@ -32,5 +32,9 @@ public class ScrapieTest extends Analysis {
   public final RawData getScrapieSensibility() {
     return scrapieSensibility;
   }
+  
+  public String toString() {
+		return getName();
+}
 
 }
