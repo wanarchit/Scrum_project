@@ -14,7 +14,7 @@ import scrum.Controleur.CtrlFormCategory;
  * @author Marin
  */
 public class FormCategory extends JPanel {
-     MenuPrincipal myMenu;
+    MenuPrincipal myMenu;
     private CtrlFormCategory controleur;
     private JTextField nameCategory;
     private JButton butValidate;
