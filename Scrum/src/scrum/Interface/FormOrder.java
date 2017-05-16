@@ -138,7 +138,7 @@ public class FormOrder extends JPanel {
 		}
 	}
 	
-	public static void main (String[] args){
+	/*public static void main (String[] args){
 		ArrayList<SpecieCategory> lesCategories = new ArrayList<SpecieCategory>();
 		ArrayList<Analysis> listAnalysis = new ArrayList<Analysis>();
 		Specie s1 = new Specie("specie1");
@@ -190,5 +190,5 @@ public class FormOrder extends JPanel {
 		t.setPreferredSize(new Dimension(500,500));
 		t.add(new FormOrder(null, listAnalysis, lesCategories));
 		t.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+	}*/
 }
