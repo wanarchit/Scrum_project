@@ -70,9 +70,6 @@ public class FormOrder extends JPanel {
         
         
         category = new JComboBox<SpecieCategory>();
-        for (SpecieCategory specieCategory : listCategory) {
-        	category.addItem(specieCategory);
-		}
         category.addActionListener(
         		new ActionListener(){
                     public void actionPerformed(ActionEvent e){
@@ -110,6 +107,15 @@ public class FormOrder extends JPanel {
         
         
         JPanel panelForm = new JPanel(new FlowLayout(LEFT));
+        
+        int compteur = 0;
+        for (SpecieCategory specieCategory : listCategory) {
+        	if(compteur == 0){
+        		majSpecies(specieCategory);
+        		majAnalysis((Specie) species.getSelectedItem());
+        	}
+        	category.addItem(specieCategory);
+		}
         
         this.add(labelTitle);
         this.add(panelField1);
