@@ -48,6 +48,7 @@ public class FormOrder extends JPanel {
         this.listAnalysis = listAnalysis;
         
         analysis = new JComboBox<Analysis>();
+        analysis.setEnabled(false);
         
         
         JLabel labelTitle = new JLabel("New order");
