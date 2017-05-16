@@ -114,4 +114,17 @@ public class MenuPrincipal extends JPanel{
     public ArrayList<Customer2> getListCustomer(){
         return listCustomer;
     }
+    
+    public ArrayList<Order> getListOrder(){
+        return listOrder;
+    }
+    
+    public ArrayList<Specie> getListSpecie(){
+        return listSpecie;
+    }
+    
+    public ArrayList<SpecieCategory> getListCategory(){
+        return listCategory;
+    }  
+    
 }
