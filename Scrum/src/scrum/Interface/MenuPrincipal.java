@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import scrum.Scrum;
 import scrum.Controleur.CtrlMenuPrincipal;
+import scrum.noyau.Customer;
 import scrum.noyau.Customer2;
 import scrum.noyau.IntegrationTest;
 import scrum.noyau.Order;
@@ -136,9 +137,9 @@ public class MenuPrincipal extends JPanel{
         return listCategory;
     }
     
-    public void addOrder(Order newOrder){
-    	if(!this.listOrder.contains(newOrder))
-    		this.listOrder.add(newOrder);
+    public void addOrder(Customer customer, Order newOrder){
+    	listOrder.add(newOrder);
+    	customer.addOrder(newOrder);
     }
     
 }
