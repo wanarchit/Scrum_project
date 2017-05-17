@@ -30,6 +30,9 @@ public class CtrlMenuPrincipal implements ActionListener{
             leMenu.afficheExploreOrder();
         }else if(e.getSource().equals(leMenu.getButFormScrapie())){
             leMenu.afficheFormScrapie();
+        }else if (e.getSource().equals(leMenu.getButFormCustomerConnexion())){
+            leMenu.afficheFormConnexionCustomer();
         }
+             
     }
 }

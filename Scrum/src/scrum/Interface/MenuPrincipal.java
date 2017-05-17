@@ -31,6 +31,7 @@ public class MenuPrincipal extends JPanel{
     private JButton butFormCategory;
     private JButton butExploreOrder;
     private JButton butFormScrapie;
+    private JButton butFormCustomerConnexion;
     
     private CtrlMenuPrincipal controleur;
     
@@ -66,6 +67,8 @@ public class MenuPrincipal extends JPanel{
         butExploreOrder.addActionListener(controleur);
         butFormScrapie = new JButton("Create Scrapie Test");
         butFormScrapie.addActionListener(controleur);
+        butFormCustomerConnexion = new JButton ("Connexion Customer");
+        butFormCustomerConnexion.addActionListener(controleur);
                 
         this.setLayout(new GridLayout(7,1));
         this.add(textMenu);
@@ -75,6 +78,7 @@ public class MenuPrincipal extends JPanel{
         this.add(butFormCategory);
         this.add(butExploreOrder);
         this.add(butFormScrapie);
+        this.add(butFormCustomerConnexion);
     }
     
     public Scrum getFenetreMain(){
@@ -103,6 +107,10 @@ public class MenuPrincipal extends JPanel{
     
     public JButton getButFormScrapie(){
         return butFormScrapie;
+    }
+    
+    public JButton getButFormCustomerConnexion(){
+        return butFormCustomerConnexion;
     }
     
     public void afficheFormCustomer(){
@@ -146,6 +154,12 @@ public class MenuPrincipal extends JPanel{
         fenetreMain.revalidate();
     }
     
+    public void afficheFormConnexionCustomer(){
+        FormCustomerConnexion formCusConnexion = new FormCustomerConnexion(this);
+        fenetreMain.setContentPane(formCusConnexion);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+    }
     public void afficheMenuPrincipal(){
         fenetreMain.setContentPane(this);
         fenetreMain.repaint();
