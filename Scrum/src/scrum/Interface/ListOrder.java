@@ -1,6 +1,7 @@
 package scrum.Interface;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
@@ -20,9 +21,9 @@ public class ListOrder extends JFrame{
 	private JTable tableOrders;
 	
 	public ListOrder(Customer customer){
-		this.setPreferredSize(new Dimension(500,500));
+		this.setSize(new Dimension(1000,750));
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setTitle("Orders list of "+customer.getName()+" from "+customer.getTown());
 		this.customer = customer;
 		this.setLayout(new GridLayout());
@@ -43,6 +44,7 @@ public class ListOrder extends JFrame{
 	 */
 	private void initJTable(){
 		this.tableOrders = new JTable(modeleTable);
+                tableOrders.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
 		tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tableOrders.setRowHeight(80);
 		tableOrders.setDefaultRenderer(OrderStatus.class, new OrderTableCellRenderer());
