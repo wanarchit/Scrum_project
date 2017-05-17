@@ -1,9 +1,21 @@
 package scrum.noyau;
 
 public class Customer2 extends Customer{
+    
+    private String login;
+    private String password;
 	
-	public Customer2(String n, String t){
+        /**
+         * Constructeur du client
+         * @param n : customer name
+         * @param t : customer password
+         * @param log : customer login
+         * @param passwrd : customer password
+         */
+	public Customer2(String n, String t, String log, String passwrd){
 		super(n,t);
+                login = log;
+                password = passwrd;
 	}
 	
 	/**
@@ -19,6 +31,14 @@ public class Customer2 extends Customer{
   
   public String toString(){
 	  return this.getName()+" "+this.getTown();
+  }
+  
+  public String getPassword(){
+      return password;
+  }
+  
+  public String getLogin(){
+      return login;
   }
 
 }
