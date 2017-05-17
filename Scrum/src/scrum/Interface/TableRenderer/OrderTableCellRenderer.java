@@ -17,9 +17,8 @@ import scrum.noyau.OrderStatus;
 public class OrderTableCellRenderer extends DefaultTableCellRenderer {
 	
 	public OrderTableCellRenderer() {
-		super();
-                setHorizontalAlignment(SwingConstants.CENTER);
-                setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
+            super();
+            setHorizontalAlignment(SwingConstants.CENTER);
 	}
 	
 	/**

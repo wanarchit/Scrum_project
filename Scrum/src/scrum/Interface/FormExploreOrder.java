@@ -33,7 +33,7 @@ public class FormExploreOrder extends JPanel {
     
     
     public FormExploreOrder (MenuPrincipal menu){
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        
         myMenu = menu;
         controleur = new CtrlFormExploreOrder(this);
         
@@ -47,13 +47,11 @@ public class FormExploreOrder extends JPanel {
         labelTitre.setHorizontalAlignment(SwingConstants.CENTER);
         
         JPanel panelComboCustomer = new JPanel();
-        panelComboCustomer.setLayout(new FlowLayout(FlowLayout.LEFT));
         panelComboCustomer.add(new JLabel (" Customers "));
         panelComboCustomer.add(customer);
         
         JPanel panButValider = new JPanel();
         validate = new JButton ("Valider");
-        validate.setPreferredSize(new Dimension(200,20));
         validate.addActionListener(controleur);
         panButValider.add(validate);
         
@@ -63,12 +61,13 @@ public class FormExploreOrder extends JPanel {
         panButRetour.add(retour);  
         
         JPanel panButtons = new JPanel(new GridLayout(1,2));
-        panButtons.add(retour);
-        panButtons.add(validate);
+        panButtons.add(panButRetour);
+        panButtons.add(panButValider);
         
-        this.add(labelTitre);
-        this.add(panelComboCustomer);
-        this.add(panButtons);
+        this.setLayout(new BorderLayout());
+        this.add(labelTitre, BorderLayout.NORTH);
+        this.add(panelComboCustomer, BorderLayout.CENTER);
+        this.add(panButtons, BorderLayout.SOUTH);
         
     }
     
