@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import scrum.Controleur.CtrlFormExploreOrder;
+import scrum.noyau.Customer;
 import scrum.noyau.Customer2;
 /**
  *
@@ -83,7 +84,7 @@ public class FormExploreOrder extends JPanel {
     }
 
 	public void validation() {
-		myMenu.goListOrder(customer.getSelectedItem());
+		myMenu.goListOrder((Customer) customer.getSelectedItem());
 	}
     
     

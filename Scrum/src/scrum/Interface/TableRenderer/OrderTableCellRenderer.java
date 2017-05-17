@@ -19,6 +19,7 @@ public class OrderTableCellRenderer extends DefaultTableCellRenderer {
 	public OrderTableCellRenderer() {
 		super();
         this.setHorizontalAlignment(SwingConstants.CENTER);
+        this.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
 	}
 	
 	/**
@@ -44,6 +45,10 @@ public class OrderTableCellRenderer extends DefaultTableCellRenderer {
                 setBackground(Color.BLUE);
         	}
         }
+        else if(column==2)
+        	setForeground(Color.GREEN);
+        else if(column==3)
+        	setForeground(Color.RED);
         return this;
     }
 

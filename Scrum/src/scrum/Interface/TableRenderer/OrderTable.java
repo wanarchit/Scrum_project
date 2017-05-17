@@ -1,13 +1,7 @@
 package scrum.Interface.TableRenderer;
 
 import java.util.ArrayList;
-
-import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
-
-import edu.ihm.noyau_fonctionnel.Classes;
-import edu.ihm.noyau_fonctionnel.Eleve;
 import scrum.noyau.Customer;
 import scrum.noyau.Order;
 import scrum.noyau.Sample;

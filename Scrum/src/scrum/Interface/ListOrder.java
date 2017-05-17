@@ -45,6 +45,8 @@ public class ListOrder extends JFrame{
 		tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tableOrders.setRowHeight(80);
 		tableOrders.setDefaultRenderer(OrderStatus.class, new OrderTableCellRenderer());
+		tableOrders.setDefaultRenderer(Integer.class, new OrderTableCellRenderer());
+		tableOrders.setDefaultRenderer(String.class, new OrderTableCellRenderer());
 	}
 
 }
