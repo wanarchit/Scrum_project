@@ -1,10 +1,8 @@
 package scrum.Interface;
 
 import java.awt.BorderLayout;
-import static javax.swing.SwingConstants.LEFT;
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -83,8 +81,7 @@ public class FormOrder extends JPanel {
         	customers.addItem(customer2);
 		}
         
-        JLabel titleCust = new JLabel("Customer : ");
-        titleCust.setPreferredSize(new Dimension(200,100));
+        JLabel titleCust = new JLabel("Customer :    ");
 
         centreADroite.gridx = 0;
         centreADroite.gridy = 5;
@@ -98,8 +95,7 @@ public class FormOrder extends JPanel {
 
         // The field for the name
         nameOrder = new JTextField(20);
-        JLabel labelNom = new JLabel("Name of the order : ");
-        labelNom.setPreferredSize(new Dimension(200,100));
+        JLabel labelNom = new JLabel("Name of the order :    ");
 
         //AJOUT PANEL
         centreADroite.gridx = 0;
@@ -112,8 +108,7 @@ public class FormOrder extends JPanel {
 
         // The field for the number of sample
         numberSample = new JTextField(20);
-        JLabel titleSample = new JLabel("Number of samples : ");
-        titleSample.setPreferredSize(new Dimension(200,100));
+        JLabel titleSample = new JLabel("Number of samples :    ");
 
         centreADroite.gridx = 0;
         centreADroite.gridy = 4;
@@ -135,8 +130,7 @@ public class FormOrder extends JPanel {
         }
         );
 
-        JLabel labelCat = new JLabel("Category : ");
-        labelCat.setPreferredSize(new Dimension(200,100));
+        JLabel labelCat = new JLabel("Category :    ");
 
         centreADroite.gridx = 0;
         centreADroite.gridy = 1;
@@ -158,8 +152,7 @@ public class FormOrder extends JPanel {
         }
         );
 
-        JLabel labelSpec = new JLabel("Specie : ");
-        labelSpec.setPreferredSize(new Dimension(200,100));
+        JLabel labelSpec = new JLabel("Specie :    ");
 
         centreADroite.gridx = 0;
         centreADroite.gridy = 2;
@@ -172,8 +165,7 @@ public class FormOrder extends JPanel {
         // Creation of the JCombobox for all the analysis
         analysis = new JComboBox<Analysis>();
         
-        JLabel labelAna = new JLabel("Analysis : ");
-        labelAna.setPreferredSize(new Dimension(200,100));
+        JLabel labelAna = new JLabel("Analysis :    ");
         
         centreADroite.gridx = 0;
         centreADroite.gridy = 3;
