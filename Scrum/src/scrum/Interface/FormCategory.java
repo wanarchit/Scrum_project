@@ -2,6 +2,7 @@ package scrum.Interface;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -20,7 +21,8 @@ import scrum.noyau.SpecieCategory;
  * @author Marin
  */
 public class FormCategory extends JPanel {
-     MenuPrincipal myMenu;
+     
+    MenuPrincipal myMenu;
     private CtrlFormCategory controleur;
     private JTextField nameCategory;
     private JButton butValidate;
@@ -31,16 +33,55 @@ public class FormCategory extends JPanel {
         controleur = new CtrlFormCategory(this);//A creer 
         
         JLabel headLabel = new JLabel("New Category");
-        headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.ITALIC,16));
+        headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
         headLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
+        JPanel panForm = new JPanel(new BorderLayout());
+        JPanel panCenterForm = new JPanel(new GridBagLayout());
+        
+        JPanel panCategory = new JPanel(); 
+        JPanel panCategoryField = new JPanel();
+        
+        JPanel panCatExist = new JPanel();
+        
+
         nameCategory = new JTextField(20);
-        JPanel panField1 = new JPanel();
-        panField1.add(new JLabel("Category name :  "));
-        panField1.add(nameCategory);
+        panCategory.add(new JLabel("Category name :  "));
+        panCategoryField.add(nameCategory);
+        
                 
-        JPanel panForm = new JPanel(new GridLayout(1,1));
-        panForm.add(panField1);
+        panCatExist.add(new JLabel("Categories already exist :  "));
+        JComboBox listeCat = new JComboBox();
+        for (SpecieCategory diffCat : myMenu.getListCategory()) {
+            listeCat.addItem(diffCat.getName());
+        }
+        listeCat.setSize(100, 100);
+        JPanel panComboBox = new JPanel();
+        panComboBox.add(listeCat);
+        
+        GridBagConstraints RightCenter = new GridBagConstraints();
+        RightCenter.anchor = GridBagConstraints.LINE_END;
+        RightCenter.gridx = 0;
+        RightCenter.gridy = 0;
+        
+        GridBagConstraints LeftCenter = new GridBagConstraints();
+        LeftCenter.anchor = GridBagConstraints.LINE_START;
+        LeftCenter.gridx = 1;
+        LeftCenter.gridy = 0;
+        
+        panCenterForm.add(panCategory,RightCenter);
+        panCenterForm.add(panCategoryField,LeftCenter);
+        
+        RightCenter.gridx = 0;
+        RightCenter.gridy = 1;
+        
+        panCenterForm.add(panCatExist,RightCenter);
+        
+        LeftCenter.gridx = 1;
+        LeftCenter.gridy = 1;
+        panCenterForm.add(panComboBox,LeftCenter);
+        
+        panForm.add(panCenterForm,BorderLayout.CENTER);
         
         JPanel panButValid = new JPanel();
         butValidate = new JButton("Validation");
@@ -55,21 +96,11 @@ public class FormCategory extends JPanel {
         JPanel panButtons = new JPanel(new GridLayout(1,2));
         panButtons.add(panButRetour);
         panButtons.add(panButValid);
-        
-        JComboBox listeCat = new JComboBox();
-        for (SpecieCategory diffCat : myMenu.getListCategory()) {
-            listeCat.addItem(diffCat.getName());
-        }
-        listeCat.setSize(100, 100);
-        JPanel panRight = new JPanel();
-        panRight.add(listeCat);
-        
+       
         this.setLayout(new BorderLayout());
         this.add(headLabel,BorderLayout.NORTH);
         this.add(panForm,BorderLayout.CENTER);
         this.add(panButtons,BorderLayout.SOUTH);
-        this.add(panRight, BorderLayout.EAST);
-       
     }
     
     public MenuPrincipal getLeMenuP(){
