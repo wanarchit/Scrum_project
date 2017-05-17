@@ -272,7 +272,7 @@ public class FormOrder extends JPanel {
 	                boiteDial.showMessageDialog(null, "The number of analysis needs to be upper than 0", "Create order", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else{
-					myMenu.addOrder(new Order((Customer2) customers.getSelectedItem()));
+					myMenu.addOrder((Customer2) customers.getSelectedItem(),new Order((Customer2) customers.getSelectedItem()));
 					myMenu.afficheMenuPrincipal();
 				}
 					
