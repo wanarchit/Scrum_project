@@ -10,7 +10,7 @@ public class OrderTable extends AbstractTableModel {
 
 	private ArrayList<Order> donnees;
 	private Customer customer;
-	private final String[] entetes = {"Order number", "Status", "Number of analyzed sample", "Number of not analyzed sample"}; // La liste des en-tête de la table
+	private final String[] entetes = {"Customer", "Status", "Number of analyzed sample", "Number of not analyzed sample"}; // La liste des en-tête de la table
 
 	public OrderTable(Customer customer) {
 		super();
@@ -62,7 +62,7 @@ public class OrderTable extends AbstractTableModel {
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		switch(columnIndex){
 		case 0:
-			return "test";
+			return "Order "+donnees.get(rowIndex).getId();
 		case 1:
 			return donnees.get(rowIndex).getStatus();
 		case 2:

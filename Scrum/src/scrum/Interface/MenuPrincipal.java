@@ -49,10 +49,10 @@ public class MenuPrincipal extends JPanel{
         controleur = new CtrlMenuPrincipal(this);
         
         // Import of data
-        listCustomer = new ArrayList();
+        listCustomer = model.getCustomer();
         listOrder = new ArrayList();
         listSpecie = new ArrayList();
-        listCategory = new ArrayList();
+        listCategory = model.getCategory();
                 
         JLabel textMenu = new JLabel("Main menu");
         textMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -204,7 +204,7 @@ public class MenuPrincipal extends JPanel{
     }
 
 	public void goListOrder(Customer customer) {
-		new ListOrder(customer);
+            new ListOrder(customer);
 	}
     
 }
