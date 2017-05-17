@@ -9,8 +9,6 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import scrum.Controleur.CtrlFormCustomer;
 import scrum.Controleur.CtrlFormMicroplaque;
 
 /**
