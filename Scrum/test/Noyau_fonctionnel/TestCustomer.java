@@ -44,4 +44,29 @@ public class TestCustomer {
         assertEquals(true, customer.getOrders().contains(newOrder));
         customer.addOrder(newOrder);
     }
+    
+    @Test
+    public void testGetPwd(){
+        assertEquals(customer.getPassword(),"mot de passe");
+    }
+    
+    @Test
+    public void testGetLogin(){
+        assertEquals(customer.getLogin(),"login");
+    }
+    
+    @Test
+    public void testGetTown(){
+        assertEquals(customer.getTown(),"ville");
+    }
+    
+    @Test
+    public void testGetName(){
+        assertEquals(customer.getName(),"nom");
+    }
+    
+    @Test
+    public void testGetOrder(){
+        
+    }
 }
