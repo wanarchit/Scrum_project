@@ -34,6 +34,8 @@ public class CtrlMenuPrincipal implements ActionListener{
             leMenu.afficheFormConnexionCustomer();
         }else if (e.getSource().equals(leMenu.getButFormMicroplaque())){
             leMenu.afficheFormMicroplaque();
+        }else if(e.getSource().equals(leMenu.getButFormSexingTest())){
+        	leMenu.afficheFormSexingTest();
         }
              
     }
