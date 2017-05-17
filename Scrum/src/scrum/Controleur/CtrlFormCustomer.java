@@ -105,10 +105,10 @@ public class CtrlFormCustomer implements ActionListener {
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "This customer already exists in this city", "Create customer", JOptionPane.INFORMATION_MESSAGE);
                 }
-            } else if (e.getSource()
-                    .equals(myForm.getButRetour())) {
-                myForm.getLeMenuP().afficheMenuPrincipal();
             }
+        } else if (e.getSource()
+                .equals(myForm.getButRetour())) {
+            myForm.getLeMenuP().afficheMenuPrincipal();
         }
     }
 }
