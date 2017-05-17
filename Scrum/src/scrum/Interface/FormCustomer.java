@@ -2,6 +2,7 @@ package scrum.Interface;
 
 import java.awt.BorderLayout;
 import static java.awt.BorderLayout.LINE_END;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -23,6 +24,8 @@ public class FormCustomer extends JPanel{
     private CtrlFormCustomer controleur;
     private JTextField nameCustomer;
     private JTextField cityCustomer;
+    private JTextField loginCustomer;
+    private JTextField mdpCustomer;
     private JButton butValidate;
     private JButton butRetour;
     
@@ -43,9 +46,13 @@ public class FormCustomer extends JPanel{
       
         JPanel panCorpo = new JPanel ();
         JPanel panCity = new JPanel ();
+        JPanel panLogin = new JPanel ();
+        JPanel panMdp = new JPanel ();
         
         JPanel panCorpoField = new JPanel ();
         JPanel panCityField = new JPanel ();
+        JPanel panLoginField = new JPanel ();
+        JPanel panMdpField = new JPanel ();
         
         
         // Customer
@@ -57,6 +64,14 @@ public class FormCustomer extends JPanel{
         panCity.add(new JLabel("City :  "));
         panCityField.add(cityCustomer);
         
+        loginCustomer = new JTextField(20);
+        panLogin.add(new JLabel("Login :  "));
+        panLoginField.add(loginCustomer);
+        
+        mdpCustomer = new JTextField(20);
+        panMdp.add(new JLabel("Password:  "));
+        panMdpField.add(mdpCustomer);
+        
         GridBagConstraints RightCenter = new GridBagConstraints();
         RightCenter.anchor = GridBagConstraints.LINE_END;
         RightCenter.gridx = 0;
@@ -67,15 +82,30 @@ public class FormCustomer extends JPanel{
         LeftCenter.gridx = 1;
         LeftCenter.gridy = 0;
       
-
+        // Ajout ligne 1
         panCenterForm.add(panCorpo, RightCenter);
         panCenterForm.add(panCorpoField, LeftCenter);
+        // Ajout ligne 2
         RightCenter.gridx = 0;
         RightCenter.gridy = 1;
         panCenterForm.add(panCity, RightCenter);
         LeftCenter.gridx = 1;
         LeftCenter.gridy = 1;
         panCenterForm.add(panCityField,LeftCenter);
+        // Ajout ligne 3
+        RightCenter.gridx = 0;
+        RightCenter.gridy = 2;
+        panCenterForm.add(panLogin, RightCenter);
+        LeftCenter.gridx = 1;
+        LeftCenter.gridy = 2;
+        panCenterForm.add(panLoginField,LeftCenter);
+        // Ajout ligne 4
+        RightCenter.gridx = 0;
+        RightCenter.gridy = 3;
+        panCenterForm.add(panMdp, RightCenter);
+        LeftCenter.gridx = 1;
+        LeftCenter.gridy = 3;
+        panCenterForm.add(panMdpField,LeftCenter);
         
         panForm.add(panCenterForm,BorderLayout.CENTER);
 
