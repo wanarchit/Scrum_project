@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import scrum.Scrum;
 import scrum.Controleur.CtrlMenuPrincipal;
+import scrum.noyau.Analysis;
 import scrum.noyau.Customer;
 import scrum.noyau.Customer2;
 import scrum.noyau.IntegrationTest;
@@ -37,9 +38,12 @@ public class MenuPrincipal extends JPanel{
     private CtrlMenuPrincipal controleur;
     
     private ArrayList<Customer2> listCustomer;
+    private ArrayList<Analysis> listAnalysis;
     private ArrayList<Order> listOrder;
     private ArrayList<Specie> listSpecie;
     private ArrayList<SpecieCategory> listCategory;
+
+	private JButton butFormSexingTest;
     
     
     public MenuPrincipal(Scrum laFenetre){
@@ -52,6 +56,7 @@ public class MenuPrincipal extends JPanel{
         listCustomer = model.getCustomer();
         listOrder = new ArrayList();
         listSpecie = new ArrayList();
+        listAnalysis = model.getAnalyses();
         listCategory = model.getCategory();
                 
         JLabel textMenu = new JLabel("Main menu");
@@ -72,6 +77,8 @@ public class MenuPrincipal extends JPanel{
         butFormCustomerConnexion.addActionListener(controleur);
         butFormMicroplaque = new JButton ("Create Microplaque");
         butFormMicroplaque.addActionListener(controleur);
+        butFormSexingTest = new JButton ("Create Sexing Test");
+        butFormSexingTest.addActionListener(controleur);
                 
         this.setLayout(new GridLayout(7,1));
         this.add(textMenu);
@@ -83,6 +90,7 @@ public class MenuPrincipal extends JPanel{
         this.add(butFormScrapie);
         this.add(butFormCustomerConnexion);
         this.add(butFormMicroplaque);
+        this.add(butFormSexingTest);
     }
     
     public Scrum getFenetreMain(){
@@ -119,6 +127,10 @@ public class MenuPrincipal extends JPanel{
     
     public JButton getButFormMicroplaque(){
         return butFormMicroplaque;
+    }
+    
+    public JButton getButFormSexingTest(){
+    	return butFormSexingTest;
     }
     
     public void afficheFormCustomer(){
@@ -176,11 +188,20 @@ public class MenuPrincipal extends JPanel{
         fenetreMain.revalidate();
     }
     
+    public void afficheFormSexingTest() {
+    	FormCreateSexingTest formSexingTest = new FormCreateSexingTest(this);
+        fenetreMain.setContentPane(formSexingTest);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+	}
+    
     public void afficheMenuPrincipal(){
         fenetreMain.setContentPane(this);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
+    
+    
     
     public ArrayList<Customer2> getListCustomer(){
         return listCustomer;
@@ -196,6 +217,10 @@ public class MenuPrincipal extends JPanel{
     
     public ArrayList<SpecieCategory> getListCategory(){
         return listCategory;
+    }
+    
+    public ArrayList<Analysis> getListAnalysis(){
+    	return listAnalysis;
     }
     
     public void addOrder(Customer customer, Order newOrder){

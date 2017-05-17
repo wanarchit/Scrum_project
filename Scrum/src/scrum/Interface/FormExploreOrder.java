@@ -39,7 +39,8 @@ public class FormExploreOrder extends JPanel {
         
         customer = new JComboBox<Customer2>();
         for (Customer2 customer2 : myMenu.getListCustomer()) {
-        	customer.addItem(customer2);
+        	if(customer2.getOrders().size()>0)
+        		customer.addItem(customer2);
 		}
         
         JLabel labelTitre = new JLabel ("Explore order"); 

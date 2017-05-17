@@ -36,7 +36,7 @@ public class OrderTableCellRenderer extends DefaultTableCellRenderer {
                 else if (OrderStatus.inAnalysis.equals(value)) {
                     setText("In analysis");
                     setForeground(Color.BLACK);
-                    setBackground(Color.BLUE);
+                    setBackground(Color.YELLOW);
                 }
         	else if (OrderStatus.completed.equals(value)) {
                     setText("Completed");
@@ -53,6 +53,8 @@ public class OrderTableCellRenderer extends DefaultTableCellRenderer {
         	setForeground(Color.GREEN);
         else if(column==3)
         	setForeground(Color.RED);
+        else
+        	setForeground(Color.BLACK);
         return this;
     }
 
