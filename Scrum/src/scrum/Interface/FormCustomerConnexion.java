@@ -13,6 +13,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import scrum.Controleur.CtrlFormCustomer;
 import scrum.Controleur.CtrlFormCustomerConnexion;
@@ -25,7 +26,7 @@ public class FormCustomerConnexion extends JPanel {
     MenuPrincipal myMenu;
     private CtrlFormCustomerConnexion controleur;
     private JTextField idCustomer;
-    private JTextField passwordCustomer;
+    private JPasswordField passwordCustomer;
     private JButton butValidate;
     private JButton butRetour;
     
@@ -51,7 +52,7 @@ public class FormCustomerConnexion extends JPanel {
         panId.add(new JLabel("Identifiant :  "));
         panIdField.add(idCustomer);
        
-        passwordCustomer= new JTextField(20);
+        passwordCustomer= new JPasswordField(20);
         panPassword.add(new JLabel("Password :  "));
         panPasswordField.add(passwordCustomer);
         
