@@ -20,16 +20,33 @@ public class Order {
    * Status of the order
    */
   private OrderStatus status = OrderStatus.inProgress;
+  
+  /**
+   * Factory for unique ids
+   */
+  private static UniqueIdSample idFactory;
+
+  /**
+   * Id number for the sample.
+   * The id must be unique.
+   * It is assigned during sample creation
+   */
+  private int idOrder;
 
   /**
    * Constructor for the Order
    */
   public Order(Customer customer) {
+        if (idFactory==null) idFactory = new UniqueIdSample();
+	
+	idOrder = idFactory.newNumber();
 	this.customer = customer;
 	status = OrderStatus.inProgress;
   }
 
-  
+  public int getId(){
+      return idOrder;
+  }
 
   public final OrderStatus getStatus() {
     return status;

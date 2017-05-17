@@ -16,7 +16,7 @@ public class IntegrationTest
     public ArrayList<Analysis> theAnalyses;
     
     // theCustomers gives access to all samples and results
-    public ArrayList<Customer> theCustomers;
+    public ArrayList<Customer2> theCustomers;
 
     /**
      * Constructor for objects of class IntegrationTest
@@ -36,19 +36,19 @@ public class IntegrationTest
         // Init all lists;
         theCategories = new ArrayList<SpecieCategory>();
         theAnalyses = new ArrayList<Analysis>();
-        theCustomers = new ArrayList<Customer>();
+        theCustomers = new ArrayList<Customer2>();
         
         // Customer "Mrs Rosemary Plumket", in Poitiers
-        Customer rose = new Customer("Mrs Rosemary Plumket", "Poitiers");
+        Customer2 rose = new Customer2("Mrs Rosemary Plumket", "Poitiers","login","mdp");
         theCustomers.add(rose);
         // Customer "La Palmyre Zoo" in Royan
-        Customer zoo = new Customer("La Palmyre Zoo", "Royan");
+        Customer2 zoo = new Customer2("La Palmyre Zoo", "Royan","login2","mdp");
         theCustomers.add(zoo);
         // Customer "M. Tom Brown", in Montmorillon
-        Customer tom = new Customer("M. Tom Brown", "Montmorillon");
+        Customer2 tom = new Customer2("M. Tom Brown", "Montmorillon","login3","mdp");
         theCustomers.add(tom);
         // Customer "M. Paul Cameron", in Parthenay
-        Customer paul = new Customer("M. Paul Cameron", "Parthenay");
+        Customer2 paul = new Customer2("M. Paul Cameron", "Parthenay","login4","mdp");
         theCustomers.add(paul);
 
         // ScrapieTest management
@@ -161,7 +161,7 @@ public class IntegrationTest
     	return theAnalyses;
     }
     
-    public ArrayList<Customer> getCustomer(){
+    public ArrayList<Customer2> getCustomer(){
     	return theCustomers;
     }
 
