@@ -4,10 +4,16 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import scrum.Controleur.CtrlFormCategory;
+import scrum.noyau.Specie;
+import scrum.noyau.SpecieCategory;
 
 /**
  *
@@ -24,7 +30,7 @@ public class FormCategory extends JPanel {
         myMenu = leMenu;
         controleur = new CtrlFormCategory(this);//A creer 
         
-        JLabel headLabel = new JLabel("New Customer");
+        JLabel headLabel = new JLabel("New Category");
         headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.ITALIC,16));
         headLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
@@ -50,11 +56,20 @@ public class FormCategory extends JPanel {
         panButtons.add(panButRetour);
         panButtons.add(panButValid);
         
+        JComboBox listeCat = new JComboBox();
+        for (SpecieCategory diffCat : myMenu.getListCategory()) {
+            listeCat.addItem(diffCat.getName());
+        }
+        listeCat.setSize(100, 100);
+        JPanel panRight = new JPanel();
+        panRight.add(listeCat);
+        
         this.setLayout(new BorderLayout());
         this.add(headLabel,BorderLayout.NORTH);
         this.add(panForm,BorderLayout.CENTER);
         this.add(panButtons,BorderLayout.SOUTH);
-        
+        this.add(panRight, BorderLayout.EAST);
+       
     }
     
     public MenuPrincipal getLeMenuP(){

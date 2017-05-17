@@ -7,6 +7,8 @@ package scrum.Controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import scrum.Interface.FormScrapie;
 
 /**
@@ -15,6 +17,7 @@ import scrum.Interface.FormScrapie;
  */
 public class CtrlFormScrapie implements ActionListener {
         private FormScrapie myForm;
+        
 
     
     public CtrlFormScrapie(FormScrapie form){
@@ -23,6 +26,18 @@ public class CtrlFormScrapie implements ActionListener {
     }  
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource().equals(myForm.getButValider())){
+            if (myForm.getPosition().getText().isEmpty()) {
+                JOptionPane boiteDial = new JOptionPane();
+                boiteDial.showMessageDialog(null, "The position field is empty", "Add a position", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                
+            }
+        }
+        else if (e.getSource().equals(myForm.getButRetour())) {
+            myForm.getLeMenu().afficheMenuPrincipal();
+        }
     }
     
 }

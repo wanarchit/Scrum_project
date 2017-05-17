@@ -28,19 +28,25 @@ public class CtrlFormCategory implements ActionListener{
             Category=Category.toLowerCase();
             
             boolean validation = true;
-            for(SpecieCategory cat : myForm.getLeMenuP().getListCategory()){
-                if(cat.getName().equals(Category)){
-                    validation = false;
-                    JOptionPane boiteDial = new JOptionPane();
-                    boiteDial.showMessageDialog(null, "Specie's category already exists !", "Create category", JOptionPane.INFORMATION_MESSAGE);
-                }
+            if(Category.isEmpty()){
+                JOptionPane boiteVide= new JOptionPane();
+                boiteVide.showMessageDialog(null, "Empty category field, please fill it !", "Empty field", JOptionPane.INFORMATION_MESSAGE);
             }
-            if(validation){
-                JOptionPane boiteDial = new JOptionPane();
-                boiteDial.showMessageDialog(null, "Registering done", "Create category", JOptionPane.INFORMATION_MESSAGE);
-                SpecieCategory sp= new SpecieCategory(Category);
-                myForm.getLeMenuP().getListCategory().add(sp);
-                myForm.getLeMenuP().afficheMenuPrincipal();
+            else{
+                for(SpecieCategory cat : myForm.getLeMenuP().getListCategory()){
+                    if(cat.getName().equals(Category)){
+                        validation = false;
+                        JOptionPane boiteDial = new JOptionPane();
+                        boiteDial.showMessageDialog(null, "Specie's category already exists !", "Create category", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+                if(validation){
+                    JOptionPane boiteDial = new JOptionPane();
+                    boiteDial.showMessageDialog(null, "Registering done", "Create category", JOptionPane.INFORMATION_MESSAGE);
+                    SpecieCategory sp= new SpecieCategory(Category);
+                    myForm.getLeMenuP().getListCategory().add(sp);
+                    myForm.getLeMenuP().afficheMenuPrincipal();
+                }
             }
             
         }else if(e.getSource().equals(myForm.getButRetour())){
