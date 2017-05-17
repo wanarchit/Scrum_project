@@ -17,7 +17,7 @@ public class CtrlFormExploreOrder implements ActionListener {
     private FormExploreOrder formulaire;
     
     public CtrlFormExploreOrder (FormExploreOrder formulaire){
-        formulaire = formulaire;
+        this.formulaire = formulaire;
     }
 
     @Override
