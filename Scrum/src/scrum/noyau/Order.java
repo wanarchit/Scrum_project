@@ -10,6 +10,11 @@ public class Order {
    * link to the customer
    */
   private Customer customer;
+  
+  /**
+   * List of samples to analyse
+   */
+  private List<Sample> samples;
 
   /**
    * Status of the order
@@ -24,10 +29,7 @@ public class Order {
 	status = OrderStatus.inProgress;
   }
 
-  /**
-   * List of samples to analyse
-   */
-  private List<Sample> samples;
+  
 
   public final OrderStatus getStatus() {
     return status;

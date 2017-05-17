@@ -67,16 +67,24 @@ public class OrderTable extends AbstractTableModel {
 			return donnees.get(rowIndex).getStatus();
 		case 2:
 			int numAnalyzed = 0;
-			for (Sample sample : donnees.get(rowIndex).getSamples()) {
-				if(sample.isCompleted())
-					numAnalyzed++;
+			if(donnees.get(rowIndex).getSamples() == null)
+				return numAnalyzed;
+			else{
+				for (Sample sample : donnees.get(rowIndex).getSamples()) {
+					if(sample.isCompleted())
+						numAnalyzed++;
+				}
 			}
 			return numAnalyzed;
 		case 3:
 			int numNotAnalyzed = 0;
-			for (Sample sample : donnees.get(rowIndex).getSamples()) {
-				if(!sample.isCompleted())
-					numNotAnalyzed++;
+			if(donnees.get(rowIndex).getSamples() == null)
+				return numNotAnalyzed;
+			else{
+				for (Sample sample : donnees.get(rowIndex).getSamples()) {
+					if(!sample.isCompleted())
+						numNotAnalyzed++;
+				}
 			}
 			return numNotAnalyzed;
 		default:

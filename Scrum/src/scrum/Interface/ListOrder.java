@@ -1,12 +1,13 @@
 package scrum.Interface;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.net.URL;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+
 import scrum.Interface.TableRenderer.OrderTable;
 import scrum.Interface.TableRenderer.OrderTableCellRenderer;
 import scrum.noyau.Customer;
@@ -19,7 +20,7 @@ public class ListOrder extends JFrame{
 	private JTable tableOrders;
 	
 	public ListOrder(Customer customer){
-		this.pack();
+		this.setPreferredSize(new Dimension(500,500));
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Orders list of "+customer.getName()+" from "+customer.getTown());
