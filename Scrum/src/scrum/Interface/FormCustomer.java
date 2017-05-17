@@ -150,4 +150,12 @@ public class FormCustomer extends JPanel{
     public JButton getButRetour(){
         return butRetour;
     }
+    
+    public JTextField getLogin(){
+        return loginCustomer;
+    }
+    
+    public JTextField getPassword(){
+        return mdpCustomer;
+    }
 }
