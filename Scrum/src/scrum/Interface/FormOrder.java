@@ -64,16 +64,6 @@ public class FormOrder extends JPanel {
         this.controleur = new CtrlFormOrder(this);
         this.listAnalysis = listAnalysis;
         
-        // Creation of the JCombobox for all the customer
-        customers = new JComboBox<Customer2>();
-        for (Customer2 customer2 : listCustomer) {
-        	customers.addItem(customer2);
-		}
-        JPanel panelComboCustomer = new JPanel();
-        panelComboCustomer.setLayout(new FlowLayout(FlowLayout.LEFT));
-        panelComboCustomer.add(new JLabel("Customer : "));
-        panelComboCustomer.add(customers);
-       
         // Title of the panel
         JLabel labelTitle = new JLabel("New order");
         labelTitle.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
@@ -86,6 +76,25 @@ public class FormOrder extends JPanel {
 
         GridBagConstraints centreAGauche = new GridBagConstraints();
         centreAGauche.anchor = GridBagConstraints.LINE_START;
+        
+        // Creation of the JCombobox for all the customer
+        customers = new JComboBox<Customer2>();
+        for (Customer2 customer2 : listCustomer) {
+        	customers.addItem(customer2);
+		}
+        
+        JLabel titleCust = new JLabel("Customer : ");
+        titleCust.setPreferredSize(new Dimension(200,100));
+
+        centreADroite.gridx = 0;
+        centreADroite.gridy = 5;
+        centreAGauche.gridx = 1;
+        centreAGauche.gridy = 5;
+
+        panGeneral.add(titleCust, centreADroite);
+        panGeneral.add(customers, centreAGauche);
+        
+      
 
         // The field for the name
         nameOrder = new JTextField(20);
