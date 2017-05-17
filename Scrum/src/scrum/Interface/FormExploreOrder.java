@@ -27,7 +27,6 @@ public class FormExploreOrder extends JPanel {
     MenuPrincipal myMenu;
     private CtrlFormExploreOrder controleur; 
     private JComboBox<Customer2> customer;
-    private ArrayList<Customer2> listCustomers;
     private JButton validate;
     private JButton retour;
     
@@ -37,9 +36,11 @@ public class FormExploreOrder extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         myMenu = menu;
         controleur = new CtrlFormExploreOrder(this);
-        this.listCustomers = listCustomers;
         
         customer = new JComboBox<Customer2>();
+        for (Customer2 customer2 : myMenu.getListCustomer()) {
+        	customer.addItem(customer2);
+		}
         
         JLabel labelTitre = new JLabel ("Explore order"); 
         labelTitre.setFont(new Font(Font.DIALOG,Font.BOLD,25));

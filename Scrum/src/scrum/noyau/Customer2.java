@@ -15,5 +15,10 @@ public class Customer2 extends Customer{
 	  if(!this.getOrders().contains(theOrder))
 		  this.getOrders().add(theOrder);
   }
+  
+  
+  public String toString(){
+	  return this.getName()+" "+this.getTown();
+  }
 
 }
