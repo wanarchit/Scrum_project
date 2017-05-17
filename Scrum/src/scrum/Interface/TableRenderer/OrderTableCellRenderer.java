@@ -18,8 +18,8 @@ public class OrderTableCellRenderer extends DefaultTableCellRenderer {
 	
 	public OrderTableCellRenderer() {
 		super();
-        this.setHorizontalAlignment(SwingConstants.CENTER);
-        this.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
+                setHorizontalAlignment(SwingConstants.CENTER);
+                setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
 	}
 	
 	/**
@@ -30,19 +30,24 @@ public class OrderTableCellRenderer extends DefaultTableCellRenderer {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         if(value instanceof OrderStatus){
         	if(OrderStatus.toAnalyze.equals(value)){
-        		setText("To analyze");
-        		setForeground(Color.WHITE);
-                setBackground(Color.RED);
+                    setText("To analyze");
+                    setForeground(Color.BLACK);
+                    setBackground(Color.ORANGE);
         	}
+                else if (OrderStatus.inAnalysis.equals(value)) {
+                    setText("In analysis");
+                    setForeground(Color.BLACK);
+                    setBackground(Color.BLUE);
+                }
         	else if (OrderStatus.completed.equals(value)) {
-        		setText("Completed");
-        		setForeground(Color.BLACK);
-                setBackground(Color.GREEN);
-			}
-        	else if(OrderStatus.inProgress.equals(value) || OrderStatus.inAnalysis.equals(value)){
-        		setText("In progress");
-        		setForeground(Color.BLACK);
-                setBackground(Color.BLUE);
+                    setText("Completed");
+                    setForeground(Color.BLACK);
+                    setBackground(Color.GREEN);
+                }
+        	else if(OrderStatus.inProgress.equals(value) ){
+                    setText("In progress");
+                    setForeground(Color.BLACK);
+                    setBackground(Color.RED);
         	}
         }
         else if(column==2)
