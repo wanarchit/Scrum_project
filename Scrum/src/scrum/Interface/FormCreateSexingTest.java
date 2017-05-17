@@ -74,7 +74,8 @@ public class FormCreateSexingTest extends JPanel{
 		panelFemale.add(positionFemale);
 		
 		JPanel panelMale = new JPanel();
-		title.setTitle("Male");
+		title = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black),"Male");
+		title.setTitleJustification(TitledBorder.CENTER);
 		panelMale.setBorder(title);
 		valueMale = new JTextField(20);
 		positionMale = new JTextField(20);
