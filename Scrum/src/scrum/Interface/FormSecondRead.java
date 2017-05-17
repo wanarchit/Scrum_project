@@ -1,11 +1,20 @@
 package scrum.Interface;
 
+import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import scrum.Controleur.CtrlFormSecondRead;
 import scrum.noyau.Microplaque;
+import scrum.noyau.SpecieCategory;
 
 /**
  *
@@ -21,7 +30,7 @@ public class FormSecondRead {
     
     public FormSecondRead(MenuPrincipal leMenu){
         myMenu = leMenu;
-        controleur = new CtrlFormSecondRead(this);//A creer 
+      ///  controleur = new CtrlFormSecondRead(this);//A creer 
         
         JLabel headLabel = new JLabel("Second read");
         headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
@@ -35,7 +44,7 @@ public class FormSecondRead {
         }
         listPlate.setSize(100, 100);
         
-        JLabel title2 = new JLabel("Result"++"/7" );//
+       // JLabel title2 = new JLabel("Result"++"/7" );//
         
         JPanel panForm = new JPanel(new BorderLayout());
         JPanel panCenterForm = new JPanel(new GridBagLayout());
@@ -86,20 +95,20 @@ public class FormSecondRead {
         
         JPanel panButValid = new JPanel();
         butValidate = new JButton("Validation");
-        butValidate.addActionListener(controleur);
+       // butValidate.addActionListener(controleur);
         panButValid.add(butValidate);
         
         JPanel panButRetour = new JPanel();
         butRetour = new JButton("Retour");
-        butRetour.addActionListener(controleur);
+       // butRetour.addActionListener(controleur);
         panButRetour.add(butRetour);
         
         JPanel panButtons = new JPanel(new GridLayout(1,2));
         panButtons.add(panButRetour);
         panButtons.add(panButValid);
        
-        this.setLayout(new BorderLayout());
+       /* this.setLayout(new BorderLayout());
         this.add(headLabel,BorderLayout.NORTH);
         this.add(panForm,BorderLayout.CENTER);
-        this.add(panButtons,BorderLayout.SOUTH);
-}
+        this.add(panButtons,BorderLayout.SOUTH);*/
+}}
