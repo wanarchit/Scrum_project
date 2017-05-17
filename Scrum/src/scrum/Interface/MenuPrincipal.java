@@ -13,6 +13,7 @@ import scrum.noyau.Analysis;
 import scrum.noyau.Customer;
 import scrum.noyau.Customer2;
 import scrum.noyau.IntegrationTest;
+import scrum.noyau.Microplaque;
 import scrum.noyau.Order;
 import scrum.noyau.Specie;
 import scrum.noyau.SpecieCategory;
@@ -35,6 +36,7 @@ public class MenuPrincipal extends JPanel{
     private JButton butFormCustomerConnexion;
     private JButton butFormMicroplaque;
     private JButton butFormFirstRead;
+    private JButton butFormSexingTest;
     
     private CtrlMenuPrincipal controleur;
     
@@ -43,9 +45,7 @@ public class MenuPrincipal extends JPanel{
     private ArrayList<Order> listOrder;
     private ArrayList<Specie> listSpecie;
     private ArrayList<SpecieCategory> listCategory;
-
-	private JButton butFormSexingTest;
-    
+    private ArrayList<Microplaque> listMicroplaques;
     
     public MenuPrincipal(Scrum laFenetre){
     	model = new IntegrationTest();
@@ -59,6 +59,7 @@ public class MenuPrincipal extends JPanel{
         listSpecie = new ArrayList();
         listAnalysis = model.getAnalyses();
         listCategory = model.getCategory();
+        listMicroplaques = new ArrayList();
                 
         JLabel textMenu = new JLabel("Main menu");
         textMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -236,6 +237,10 @@ public class MenuPrincipal extends JPanel{
     
     public ArrayList<Analysis> getListAnalysis(){
     	return listAnalysis;
+    }
+    
+    public ArrayList<Microplaque> getListMicroplaques(){
+    	return listMicroplaques;
     }
     
     public void addOrder(Customer customer, Order newOrder){
