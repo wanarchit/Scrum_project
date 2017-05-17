@@ -28,6 +28,13 @@ public class Microplaque {
     }
 
     /**
+     * Retourne nom de la plaquze
+     * @return String : nom de la plaque
+     */
+    private String getName(){
+        return namePlate;
+    }
+    /**
      *
      * @return
      */
