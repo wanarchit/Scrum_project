@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -24,6 +25,7 @@ import scrum.Controleur.CtrlFormOrder;
 import scrum.noyau.Analysis;
 import scrum.noyau.Customer2;
 import scrum.noyau.Order;
+import scrum.noyau.Sample;
 import scrum.noyau.Specie;
 import scrum.noyau.SpecieCategory;
 
@@ -261,28 +263,33 @@ public class FormOrder extends JPanel {
      */
 	public void validationForm() {
 		if(numberSample.getText().isEmpty() || nameOrder.getText().isEmpty()){
-			JOptionPane boiteDial = new JOptionPane();
-            boiteDial.showMessageDialog(null, "One field is empty", "Create order", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane boiteDial = new JOptionPane();
+                    boiteDial.showMessageDialog(null, "One field is empty", "Create order", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else{
-			try
-	        {
-	            int i= Integer.parseInt(numberSample.getText());
-	            if(i <= 0){
-					JOptionPane boiteDial = new JOptionPane();
-	                boiteDial.showMessageDialog(null, "The number of analysis needs to be upper than 0", "Create order", JOptionPane.INFORMATION_MESSAGE);
-				}
-				else{
-					myMenu.addOrder((Customer2) customers.getSelectedItem(),new Order((Customer2) customers.getSelectedItem()));
-					myMenu.afficheMenuPrincipal();
-				}
-					
-	        }
-	        catch(NumberFormatException e)
-	        {
-	        	JOptionPane boiteDial = new JOptionPane();
-                boiteDial.showMessageDialog(null, "The number of analysis needs to be a numeric value", "Create order", JOptionPane.INFORMATION_MESSAGE);
-	        } 
+                    try
+                    {
+                        int i= Integer.parseInt(numberSample.getText());
+                        if(i <= 0){
+                            JOptionPane boiteDial = new JOptionPane();
+                            boiteDial.showMessageDialog(null, "The number of analysis needs to be upper than 0", "Create order", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        else{
+                            Order ord = new Order((Customer2) customers.getSelectedItem());
+                            List<Sample> samples = new ArrayList<Sample>();
+                            for(int j = 1;j<=Integer.parseInt(numberSample.getText());j++){
+                                samples.add(new Sample((Analysis) analysis.getSelectedItem(), (Specie) species.getSelectedItem(), ord));
+                            }
+                            ord.setSamples(samples);
+                            myMenu.addOrder((Customer2) customers.getSelectedItem(),ord);
+                            myMenu.afficheMenuPrincipal();
+                        }	
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        JOptionPane boiteDial = new JOptionPane();
+                        boiteDial.showMessageDialog(null, "The number of analysis needs to be a numeric value", "Create order", JOptionPane.INFORMATION_MESSAGE);
+                    } 
 		}
 		
 	}

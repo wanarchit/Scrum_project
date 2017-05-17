@@ -14,7 +14,7 @@ public class TestCustomer {
 
     @Before
     public void setUp() {
-        customer = new Customer2("nom", "ville");
+        customer = new Customer2("nom", "ville","login","mot de passe");
     }
 
     /**
