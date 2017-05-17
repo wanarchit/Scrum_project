@@ -67,6 +67,8 @@ public class TestCustomer {
     
     @Test
     public void testGetOrder(){
-        
+        Order newOrder = new Order(customer);
+        customer.addOrder(newOrder);
+        assertEquals(customer.getOrders().get(0),newOrder);
     }
 }
