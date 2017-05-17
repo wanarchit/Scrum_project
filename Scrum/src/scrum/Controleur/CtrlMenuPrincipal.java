@@ -32,6 +32,8 @@ public class CtrlMenuPrincipal implements ActionListener{
             leMenu.afficheFormScrapie();
         }else if (e.getSource().equals(leMenu.getButFormCustomerConnexion())){
             leMenu.afficheFormConnexionCustomer();
+        }else if (e.getSource().equals(leMenu.getButFormMicroplaque())){
+            leMenu.afficheFormMicroplaque();
         }
              
     }

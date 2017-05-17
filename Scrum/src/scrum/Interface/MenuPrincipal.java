@@ -32,6 +32,7 @@ public class MenuPrincipal extends JPanel{
     private JButton butExploreOrder;
     private JButton butFormScrapie;
     private JButton butFormCustomerConnexion;
+    private JButton butFormMicroplaque;
     
     private CtrlMenuPrincipal controleur;
     
@@ -69,6 +70,8 @@ public class MenuPrincipal extends JPanel{
         butFormScrapie.addActionListener(controleur);
         butFormCustomerConnexion = new JButton ("Connexion Customer");
         butFormCustomerConnexion.addActionListener(controleur);
+        butFormMicroplaque = new JButton ("Create Microplaque");
+        butFormMicroplaque.addActionListener(controleur);
                 
         this.setLayout(new GridLayout(7,1));
         this.add(textMenu);
@@ -79,6 +82,7 @@ public class MenuPrincipal extends JPanel{
         this.add(butExploreOrder);
         this.add(butFormScrapie);
         this.add(butFormCustomerConnexion);
+        this.add(butFormMicroplaque);
     }
     
     public Scrum getFenetreMain(){
@@ -111,6 +115,10 @@ public class MenuPrincipal extends JPanel{
     
     public JButton getButFormCustomerConnexion(){
         return butFormCustomerConnexion;
+    }
+    
+    public JButton getButFormMicroplaque(){
+        return butFormMicroplaque;
     }
     
     public void afficheFormCustomer(){
@@ -160,6 +168,14 @@ public class MenuPrincipal extends JPanel{
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
+    
+    public void afficheFormMicroplaque(){
+        FormMicroplaque formMicroP = new FormMicroplaque(this);
+        fenetreMain.setContentPane(formMicroP);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+    }
+    
     public void afficheMenuPrincipal(){
         fenetreMain.setContentPane(this);
         fenetreMain.repaint();
