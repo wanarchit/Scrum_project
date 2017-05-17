@@ -22,7 +22,7 @@ import scrum.noyau.SpecieCategory;
  */
 public class MenuPrincipal extends JPanel{
 	
-	private IntegrationTest model;
+    private IntegrationTest model;
     
     private Scrum fenetreMain;
     private JButton butFormCustomer;
@@ -156,8 +156,8 @@ public class MenuPrincipal extends JPanel{
     }
     
     public void afficheFormScrapie(){
-        //
-        //fenetreMain.setContentPane(formCat);
+        FormScrapie scrapie = new FormScrapie(this);
+        fenetreMain.setContentPane(scrapie);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
