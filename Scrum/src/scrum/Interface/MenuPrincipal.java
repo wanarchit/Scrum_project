@@ -34,6 +34,7 @@ public class MenuPrincipal extends JPanel{
     private JButton butFormScrapie;
     private JButton butFormCustomerConnexion;
     private JButton butFormMicroplaque;
+    private JButton butFormFirstRead;
     
     private CtrlMenuPrincipal controleur;
     
@@ -79,8 +80,10 @@ public class MenuPrincipal extends JPanel{
         butFormMicroplaque.addActionListener(controleur);
         butFormSexingTest = new JButton ("Create Sexing Test");
         butFormSexingTest.addActionListener(controleur);
+        butFormFirstRead = new JButton ("First Read");
+        butFormFirstRead.addActionListener(controleur);
                 
-        this.setLayout(new GridLayout(7,1));
+        this.setLayout(new GridLayout(11,1));
         this.add(textMenu);
         this.add(butFormCustomer);
         this.add(butFormOrder);
@@ -91,6 +94,7 @@ public class MenuPrincipal extends JPanel{
         this.add(butFormCustomerConnexion);
         this.add(butFormMicroplaque);
         this.add(butFormSexingTest);
+        this.add(butFormFirstRead);
     }
     
     public Scrum getFenetreMain(){
@@ -131,6 +135,10 @@ public class MenuPrincipal extends JPanel{
     
     public JButton getButFormSexingTest(){
     	return butFormSexingTest;
+    }
+    
+    public JButton getButFormFirstRead(){
+    	return butFormFirstRead;
     }
     
     public void afficheFormCustomer(){
@@ -193,7 +201,14 @@ public class MenuPrincipal extends JPanel{
         fenetreMain.setContentPane(formSexingTest);
         fenetreMain.repaint();
         fenetreMain.revalidate();
-	}
+    }
+    
+    public void afficheFormFirstRead() {
+    	FormFirstRead formFirstR = new FormFirstRead(this);
+        fenetreMain.setContentPane(formFirstR);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+    }
     
     public void afficheMenuPrincipal(){
         fenetreMain.setContentPane(this);
