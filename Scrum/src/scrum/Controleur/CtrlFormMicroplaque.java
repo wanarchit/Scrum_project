@@ -23,8 +23,14 @@ public class CtrlFormMicroplaque implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource().equals(myForm.getButS1())){
+            
+        }
+        
         if(e.getSource().equals(myForm.getButValid())){
-        	//myForm.validationForm();
+            
+            
+            
         }else if(e.getSource().equals(myForm.getButRetour())){
             myForm.getLeMenuP().afficheMenuPrincipal();
         }
