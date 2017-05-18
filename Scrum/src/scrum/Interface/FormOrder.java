@@ -279,6 +279,7 @@ public class FormOrder extends JPanel {
                     }
                     ord.setSamples(samples);
                     myMenu.getLeMenu2().addOrder((Customer2) customers.getSelectedItem(),ord);
+                    JOptionPane.showMessageDialog(null, "Order created", "Create order", JOptionPane.INFORMATION_MESSAGE);
                     myMenu.afficheMenuSecretary();
                 }	
             }

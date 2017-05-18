@@ -237,7 +237,7 @@ public class FormMicroplaque extends JPanel {
                     if(sample.getResults().get((sample.getResults().size()) - 1).getStatus() != null){
                         if (sample.getResults().get((sample.getResults().size()) - 1).getStatus().equals(ResultStatus.UNREADABLE))
                             sampPrio.add(sample);
-                        else
+                        else if(!sample.getResults().get((sample.getResults().size()) - 1).getStatus().equals(ResultStatus.VALIDATED))
                             sampAutre.add(sample);
                     }
                     else
