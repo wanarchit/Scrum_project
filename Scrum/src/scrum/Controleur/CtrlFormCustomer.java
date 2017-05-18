@@ -82,11 +82,8 @@ public class CtrlFormCustomer implements ActionListener {
                         finalCityName += words2[i];
                     }
                 }
-
-                ArrayList<Customer2> listCust = new ArrayList<Customer2> ();
-                listCust= myForm.getLeMenuP().getLeMenu2().getListCustomer();
                 boolean nameValidate = true;
-                for (Customer2 cust : listCust) {
+                for (Customer2 cust : myForm.getLeMenuP().getLeMenu2().getListCustomer()) {
                     if (cust.getName().equals(finalCorpName)) {
                         if (cust.getTown().equals(finalCityName)) {
                             nameValidate = false;
@@ -94,8 +91,8 @@ public class CtrlFormCustomer implements ActionListener {
                     }
                 }
                 if (nameValidate) {
-                    String log = myForm.getLogin().toString();
-                    String passw = myForm.getPassword().toString();
+                    String log = myForm.getLogin().getText();
+                    String passw = myForm.getPassword().getText();
 
                     Customer2 newCustomer = new Customer2(finalCorpName, finalCityName, log, passw);
                     myForm.getLeMenuP().getLeMenu2().getListCustomer().add(newCustomer);
