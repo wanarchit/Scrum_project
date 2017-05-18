@@ -42,7 +42,7 @@ public class CtrlFormSpecie implements ActionListener {
                     }
                 }
 
-                ArrayList<Specie> listSpecie = monFormulaire.getLeMenu().getListSpecie();
+                ArrayList<Specie> listSpecie = monFormulaire.getLeMenu().getLeMenu2().getListSpecie();
                 boolean nameVal = true;
                 for (Specie spec : listSpecie) {
                     if (spec.getName().equals(finalSpecieName)) {
@@ -52,9 +52,9 @@ public class CtrlFormSpecie implements ActionListener {
 
                 if (nameVal) {
                     Specie newSpecie = new Specie(finalSpecieName);
-                    monFormulaire.getLeMenu().getListSpecie().add(newSpecie);
+                    monFormulaire.getLeMenu().getLeMenu2().getListSpecie().add(newSpecie);
 
-                    ArrayList<SpecieCategory> listCategory = monFormulaire.getLeMenu().getListCategory();
+                    ArrayList<SpecieCategory> listCategory = monFormulaire.getLeMenu().getLeMenu2().getListCategory();
                     for (SpecieCategory specat : listCategory) {
                         if (specat.equals(monFormulaire.getValCombo())) {
                             specat.addSpecie(newSpecie);
@@ -63,14 +63,14 @@ public class CtrlFormSpecie implements ActionListener {
 
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "The new specie is registered", "Create specie", JOptionPane.INFORMATION_MESSAGE);
-                    monFormulaire.getLeMenu().afficheMenuPrincipal();
+                    monFormulaire.getLeMenu().afficheMenuSecretary();
                 } else {
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "This specie already exists in the data", "Create specie", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         } else if (e.getSource().equals(monFormulaire.getButRetour())) {
-            monFormulaire.getLeMenu().afficheMenuPrincipal();
+            monFormulaire.getLeMenu().afficheMenuSecretary();
         }
     }
 }

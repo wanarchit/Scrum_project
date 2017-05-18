@@ -33,7 +33,7 @@ public class CtrlFormCategory implements ActionListener{
                 boiteVide.showMessageDialog(null, "Empty category field, please fill it !", "Empty field", JOptionPane.INFORMATION_MESSAGE);
             }
             else{
-                for(SpecieCategory cat : myForm.getLeMenuP().getListCategory()){
+                for(SpecieCategory cat : myForm.getLeMenuP().getLeMenu2().getListCategory()){
                     if(cat.getName().equals(Category)){
                         validation = false;
                         JOptionPane boiteDial = new JOptionPane();
@@ -44,13 +44,13 @@ public class CtrlFormCategory implements ActionListener{
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "Registering done", "Create category", JOptionPane.INFORMATION_MESSAGE);
                     SpecieCategory sp= new SpecieCategory(Category);
-                    myForm.getLeMenuP().getListCategory().add(sp);
-                    myForm.getLeMenuP().afficheMenuPrincipal();
+                    myForm.getLeMenuP().getLeMenu2().getListCategory().add(sp);
+                    myForm.getLeMenuP().afficheMenuSecretary();
                 }
             }
             
         }else if(e.getSource().equals(myForm.getButRetour())){
-            myForm.getLeMenuP().afficheMenuPrincipal();
+            myForm.getLeMenuP().afficheMenuSecretary();
         }
     } 
 }

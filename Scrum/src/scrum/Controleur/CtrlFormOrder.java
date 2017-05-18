@@ -21,7 +21,7 @@ public class CtrlFormOrder implements ActionListener {
         if(e.getSource().equals(monFormulaire.getButValider())){
         	monFormulaire.validationForm();
         }else if(e.getSource().equals(monFormulaire.getButRetour())){
-            monFormulaire.getLeMenuP().afficheMenuPrincipal();
+            monFormulaire.getLeMenuP().afficheMenuSecretary();
         }
     }
 }

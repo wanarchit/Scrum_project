@@ -23,14 +23,14 @@ import scrum.Controleur.CtrlFormCustomerConnexion;
  * @author Jennifer
  */
 public class FormCustomerConnexion extends JPanel {
-    MenuPrincipal myMenu;
+    MenuPrincipal2 myMenu;
     private CtrlFormCustomerConnexion controleur;
     private JTextField idCustomer;
     private JPasswordField passwordCustomer;
     private JButton butValidate;
     private JButton butRetour;
     
-    public FormCustomerConnexion (MenuPrincipal leMenu)
+    public FormCustomerConnexion (MenuPrincipal2 leMenu)
     {
         myMenu = leMenu;
         controleur = new CtrlFormCustomerConnexion(this);
@@ -98,7 +98,7 @@ public class FormCustomerConnexion extends JPanel {
         
     }
     
-    public MenuPrincipal getLeMenuP(){
+    public MenuPrincipal2 getLeMenuP(){
         return myMenu;
     }
     

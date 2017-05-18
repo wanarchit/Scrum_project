@@ -37,7 +37,7 @@ public class CtrlFormCustomerConnexion implements ActionListener
                     boiteDial.showMessageDialog(null, "The customer password field is empty", "Create customer", JOptionPane.INFORMATION_MESSAGE);
                 }else{
                     
-                    ArrayList<Customer2> listId = myForm.getLeMenuP().getListCustomer();
+                ArrayList<Customer2> listId = myForm.getLeMenuP().getListCustomer();
                     boolean idValidate = false;
                     String finalIdCustomer;
                     String finalPswCustomer;
@@ -55,7 +55,7 @@ public class CtrlFormCustomerConnexion implements ActionListener
                     if (idValidate){
                         JOptionPane boiteDial = new JOptionPane();
                         boiteDial.showMessageDialog(null, "The customer is connected", "Connexion of customer", JOptionPane.INFORMATION_MESSAGE);
-                         myForm.getLeMenuP().afficheMenuPrincipal();
+                         myForm.getLeMenuP().afficheMenuPrincipal2();
                     }else{
                         JOptionPane boiteDial = new JOptionPane();
                         boiteDial.showMessageDialog(null, "Identifiant or password is wrong", "Connexion of customer", JOptionPane.INFORMATION_MESSAGE);
@@ -64,7 +64,7 @@ public class CtrlFormCustomerConnexion implements ActionListener
             }
             
         }else if(e.getSource().equals(myForm.getButRetour())){
-            myForm.getLeMenuP().afficheMenuPrincipal();
+            myForm.getLeMenuP().afficheMenuPrincipal2();
         }
     }
   

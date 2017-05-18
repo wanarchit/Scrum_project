@@ -7,7 +7,7 @@ package scrum;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import scrum.Interface.MenuPrincipal;
+import scrum.Interface.MenuPrincipal2;
 
 /**
  *
@@ -15,10 +15,10 @@ import scrum.Interface.MenuPrincipal;
  */
 public class Scrum extends JFrame{
     
-    private MenuPrincipal menuPrincipal;
+    private MenuPrincipal2 menuPrincipal;
     
     public Scrum(){
-        menuPrincipal = new MenuPrincipal(this);
+        menuPrincipal = new MenuPrincipal2(this);
         
         this.add(menuPrincipal);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

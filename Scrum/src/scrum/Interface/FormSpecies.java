@@ -21,13 +21,13 @@ import scrum.noyau.SpecieCategory;
 public class FormSpecies extends JPanel {
 
     private JTextField fieldNom;
-    private MenuPrincipal menu;
+    private MenuSecretary menu;
     private JComboBox<SpecieCategory> combo;
     private CtrlFormSpecie controleur;
     private JButton valider;
     private JButton retour;
 
-    public FormSpecies(MenuPrincipal theMenu) {
+    public FormSpecies(MenuSecretary theMenu) {
         
         controleur = new CtrlFormSpecie(this);
         menu = theMenu;
@@ -61,7 +61,7 @@ public class FormSpecies extends JPanel {
         category.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel titleCategory = new JLabel("Category :    ");
         combo = new JComboBox();
-        for (SpecieCategory specieCategory : menu.getListCategory()) {
+        for (SpecieCategory specieCategory : menu.getLeMenu2().getListCategory()) {
             combo.addItem(specieCategory);
         }
         category.add(titleCategory);
@@ -111,7 +111,7 @@ public class FormSpecies extends JPanel {
         return retour;
     }
         
-    public MenuPrincipal getLeMenu(){
+    public MenuSecretary getLeMenu(){
         return menu;
     }
 }

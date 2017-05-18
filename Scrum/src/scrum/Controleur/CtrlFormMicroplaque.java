@@ -32,7 +32,7 @@ public class CtrlFormMicroplaque implements ActionListener{
             
             
         }else if(e.getSource().equals(myForm.getButRetour())){
-            myForm.getLeMenuP().afficheMenuPrincipal();
+            myForm.getLeMenuP().afficheMenuTechnician();
         }
     }
 

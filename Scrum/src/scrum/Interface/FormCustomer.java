@@ -20,7 +20,7 @@ import scrum.Controleur.CtrlFormCustomer;
  */
 public class FormCustomer extends JPanel{
     
-    MenuPrincipal myMenu;
+    MenuSecretary myMenu;
     private CtrlFormCustomer controleur;
     private JTextField nameCustomer;
     private JTextField cityCustomer;
@@ -29,7 +29,7 @@ public class FormCustomer extends JPanel{
     private JButton butValidate;
     private JButton butRetour;
     
-    public FormCustomer(MenuPrincipal leMenu){
+    public FormCustomer(MenuSecretary leMenu){
         myMenu = leMenu;
         controleur = new CtrlFormCustomer(this);
         
@@ -131,7 +131,7 @@ public class FormCustomer extends JPanel{
         
     }
     
-    public MenuPrincipal getLeMenuP(){
+    public MenuSecretary getLeMenuP(){
         return myMenu;
     }
     

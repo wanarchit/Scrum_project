@@ -83,7 +83,8 @@ public class CtrlFormCustomer implements ActionListener {
                     }
                 }
 
-                ArrayList<Customer2> listCust = myForm.getLeMenuP().getListCustomer();
+                ArrayList<Customer2> listCust = new ArrayList<Customer2> ();
+                listCust= myForm.getLeMenuP().getLeMenu2().getListCustomer();
                 boolean nameValidate = true;
                 for (Customer2 cust : listCust) {
                     if (cust.getName().equals(finalCorpName)) {
@@ -97,10 +98,10 @@ public class CtrlFormCustomer implements ActionListener {
                     String passw = myForm.getPassword().toString();
 
                     Customer2 newCustomer = new Customer2(finalCorpName, finalCityName, log, passw);
-                    myForm.getLeMenuP().getListCustomer().add(newCustomer);
+                    myForm.getLeMenuP().getLeMenu2().getListCustomer().add(newCustomer);
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "The new customer is registered", "Create customer", JOptionPane.INFORMATION_MESSAGE);
-                    myForm.getLeMenuP().afficheMenuPrincipal();
+                    myForm.getLeMenuP().afficheMenuSecretary();
                 } else {
                     JOptionPane boiteDial = new JOptionPane();
                     boiteDial.showMessageDialog(null, "This customer already exists in this city", "Create customer", JOptionPane.INFORMATION_MESSAGE);
@@ -108,7 +109,7 @@ public class CtrlFormCustomer implements ActionListener {
             }
         } else if (e.getSource()
                 .equals(myForm.getButRetour())) {
-            myForm.getLeMenuP().afficheMenuPrincipal();
+            myForm.getLeMenuP().afficheMenuSecretary();
         }
     }
 }

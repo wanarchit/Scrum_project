@@ -23,13 +23,13 @@ import scrum.noyau.SpecieCategory;
  */
 public class FormCategory extends JPanel {
      
-    MenuPrincipal myMenu;
+    MenuSecretary myMenu;
     private CtrlFormCategory controleur;
     private JTextField nameCategory;
     private JButton butValidate;
     private JButton butRetour;
     
-    public FormCategory(MenuPrincipal leMenu){
+    public FormCategory(MenuSecretary leMenu){
         myMenu = leMenu;
         controleur = new CtrlFormCategory(this);//A creer 
         
@@ -53,7 +53,7 @@ public class FormCategory extends JPanel {
                 
         panCatExist.add(new JLabel("Categories already exist :  "));
         JComboBox listeCat = new JComboBox();
-        for (SpecieCategory diffCat : myMenu.getListCategory()) {
+        for (SpecieCategory diffCat : myMenu.getLeMenu2().getListCategory()) {
             listeCat.addItem(diffCat.getName());
         }
         listeCat.setSize(100, 100);
@@ -104,7 +104,7 @@ public class FormCategory extends JPanel {
         this.add(panButtons,BorderLayout.SOUTH);
     }
     
-    public MenuPrincipal getLeMenuP(){
+    public MenuSecretary getLeMenuP(){
         return myMenu;
     }
     

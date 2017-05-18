@@ -36,7 +36,7 @@ import scrum.noyau.SpecieCategory;
  */
 public class FormOrder extends JPanel {
 
-    MenuPrincipal myMenu;
+    MenuSecretary myMenu;
     private CtrlFormOrder controleur;
     private JTextField nameOrder;
     private JTextField numberSample;
@@ -58,7 +58,7 @@ public class FormOrder extends JPanel {
      * @param listAnalysis All the analysys available on the application
      * @param listCategory All the categories available on the application
      */
-    public FormOrder(MenuPrincipal menu,ArrayList<Analysis> listAnalysis, ArrayList<SpecieCategory> listCategory, ArrayList<Customer2> listCustomer){
+    public FormOrder(MenuSecretary menu,ArrayList<Analysis> listAnalysis, ArrayList<SpecieCategory> listCategory, ArrayList<Customer2> listCustomer){
     	this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
     	this.myMenu = menu;
         this.controleur = new CtrlFormOrder(this);
@@ -238,7 +238,7 @@ public class FormOrder extends JPanel {
 	 * Function to get the main menu
 	 * @return The main menu
 	 */
-    public MenuPrincipal getLeMenuP(){
+    public MenuSecretary getLeMenuP(){
         return myMenu;
     }
     
@@ -282,7 +282,7 @@ public class FormOrder extends JPanel {
                     }
                     ord.setSamples(samples);
                     myMenu.addOrder((Customer2) customers.getSelectedItem(),ord);
-                    myMenu.afficheMenuPrincipal();
+                    myMenu.afficheMenuSecretary();
                 }	
             }
             catch(NumberFormatException e)

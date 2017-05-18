@@ -8,7 +8,7 @@ import javax.swing.JPanel;
  */
 public class FormFirstRead extends JPanel{
     
-    public FormFirstRead (MenuPrincipal leMenu){
+    public FormFirstRead (MenuTechnician leMenu){
         
     }
 }

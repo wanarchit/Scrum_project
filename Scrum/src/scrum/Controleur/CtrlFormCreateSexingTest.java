@@ -18,7 +18,7 @@ public class CtrlFormCreateSexingTest implements ActionListener{
 		if(e.getSource().equals(formCreateSexingTest.getButtonValid()))
 			formCreateSexingTest.validation();
 		else if(e.getSource().equals(formCreateSexingTest.getButtonReturn()))
-			formCreateSexingTest.getMenu().afficheMenuPrincipal();
+			formCreateSexingTest.getMenu().afficheMenuValidator();
 	}
 
 }

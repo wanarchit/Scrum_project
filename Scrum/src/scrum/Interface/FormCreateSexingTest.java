@@ -29,9 +29,9 @@ public class FormCreateSexingTest extends JPanel{
 	private JTextField positionMale;
 	private JButton validateForm;
 	private JButton butRetour;
-	private MenuPrincipal myMenu;
+	private MenuValidator myMenu;
 	
-	public FormCreateSexingTest(MenuPrincipal myMenu){
+	public FormCreateSexingTest(MenuValidator myMenu){
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         CtrlFormCreateSexingTest controler = new CtrlFormCreateSexingTest(this);
         this.myMenu = myMenu;
@@ -44,10 +44,10 @@ public class FormCreateSexingTest extends JPanel{
         panelSpecies.setLayout(new FlowLayout(FlowLayout.LEFT));
 		species = new JComboBox<Specie>();
 		boolean present;
-		for (SpecieCategory speCateg : myMenu.getListCategory()) {
+		for (SpecieCategory speCateg : myMenu.getLeMenu2().getListCategory()) {
 			for (Specie specie : speCateg.getSpecies()) {
 				present = false;
-				for (Analysis analys : myMenu.getListAnalysis()) {
+				for (Analysis analys : myMenu.getLeMenu2().getListAnalysis()) {
 					if(analys instanceof SexingTest && analys.getSpecie().equals(specie)){
 						present = true;
 						break;
@@ -115,7 +115,7 @@ public class FormCreateSexingTest extends JPanel{
 		return butRetour;
 	}
 
-	public MenuPrincipal getMenu() {
+	public MenuValidator getMenu() {
 		return myMenu;
 	}
 	
@@ -141,9 +141,9 @@ public class FormCreateSexingTest extends JPanel{
 		        	JOptionPane.showMessageDialog(null, "The male distance needs to be upper than 0", "Error number", JOptionPane.INFORMATION_MESSAGE);
 		        }
 		        else{
-		        	myMenu.getListAnalysis().add(new SexingTest((Specie) species.getSelectedItem(), malePos, maleVal, femalePos, femaleVal));
+		        	myMenu.getLeMenu2().getListAnalysis().add(new SexingTest((Specie) species.getSelectedItem(), malePos, maleVal, femalePos, femaleVal));
 		        	JOptionPane.showMessageDialog(null, "Sexing test created", "Success", JOptionPane.INFORMATION_MESSAGE);
-		            myMenu.afficheMenuPrincipal();
+		            myMenu.afficheMenuValidator();
 		        }	
 		    }
 		    catch(NumberFormatException e)

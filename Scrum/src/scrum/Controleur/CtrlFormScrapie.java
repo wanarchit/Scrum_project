@@ -32,11 +32,11 @@ public class CtrlFormScrapie implements ActionListener {
                 boiteDial.showMessageDialog(null, "The position and/or the value field is empty", "Add a position", JOptionPane.INFORMATION_MESSAGE);
             }
             else{
-                myForm.getLeMenu().afficheMenuPrincipal();
+                myForm.getLeMenu().afficheMenuValidator();
             }
         }
         else if (e.getSource().equals(myForm.getButRetour())) {
-            myForm.getLeMenu().afficheMenuPrincipal();
+            myForm.getLeMenu().afficheMenuValidator();
         }else if (e.getSource().equals(myForm.getButPeakNumber())){
              if ((myForm.getPosition().getText().isEmpty())|| (myForm.getValue().getText().isEmpty())) {
                 JOptionPane boiteDial = new JOptionPane();

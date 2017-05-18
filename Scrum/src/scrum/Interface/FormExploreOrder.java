@@ -24,7 +24,7 @@ import scrum.noyau.Customer2;
 public class FormExploreOrder extends JPanel {
     
     
-    MenuPrincipal myMenu;
+    MenuValidator myMenu;
     private CtrlFormExploreOrder controleur; 
     private JComboBox<Customer2> customer;
     private JButton validate;
@@ -32,13 +32,13 @@ public class FormExploreOrder extends JPanel {
     
     
     
-    public FormExploreOrder (MenuPrincipal menu){
+    public FormExploreOrder (MenuValidator menu){
         
         myMenu = menu;
         controleur = new CtrlFormExploreOrder(this);
         
         customer = new JComboBox<Customer2>();
-        for (Customer2 customer2 : myMenu.getListCustomer()) {
+        for (Customer2 customer2 : myMenu.getLeMenu2().getListCustomer()) {
         	if(customer2.getOrders().size()>0)
         		customer.addItem(customer2);
 		}
@@ -72,7 +72,7 @@ public class FormExploreOrder extends JPanel {
         
     }
     
-    public MenuPrincipal getMenuPrincipal(){
+    public MenuValidator getMenuPrincipal(){
         return myMenu;
     }
     
@@ -85,7 +85,7 @@ public class FormExploreOrder extends JPanel {
     }
 
 	public void validation() {
-		myMenu.goListOrder((Customer) customer.getSelectedItem());
+		myMenu.getLeMenu2().goListOrder((Customer) customer.getSelectedItem());
 	}
     
     

@@ -27,7 +27,7 @@ import scrum.noyau.SpecieCategory;
  * @author Marin
  */
 public class FormScrapie extends JPanel {
-    MenuPrincipal myMenu;
+    MenuValidator myMenu;
     private CtrlFormScrapie controleur;
     public JTextField positionPeak;
     public JTextField valuePeak;
@@ -41,7 +41,7 @@ public class FormScrapie extends JPanel {
     public int number = 1; 
     public JLabel peakNumber; 
     
-    public FormScrapie(MenuPrincipal leMenu){
+    public FormScrapie(MenuValidator leMenu){
         myMenu=leMenu;
         controleur = new CtrlFormScrapie(this);
         
@@ -86,7 +86,7 @@ public class FormScrapie extends JPanel {
 
 
         species = new JComboBox();
-        for (Specie diffSpecies : myMenu.getListSpecie()) {
+        for (Specie diffSpecies : myMenu.getLeMenu2().getListSpecie()) {
             species.addItem(diffSpecies);
         }
         panSpecieExist.add(species);
@@ -193,7 +193,7 @@ public class FormScrapie extends JPanel {
         return butPeak;
     }
         
-    public MenuPrincipal getLeMenu(){
+    public MenuValidator getLeMenu(){
         return myMenu;
     }
     

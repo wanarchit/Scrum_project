@@ -24,7 +24,7 @@ import scrum.noyau.Sample;
  */
 public class FormMicroplaque extends JPanel {
 
-    MenuPrincipal myMenu;
+    MenuTechnician myMenu;
     CtrlFormMicroplaque controleur;
     JLabel butSample1;
     JLabel butSample2;
@@ -39,7 +39,7 @@ public class FormMicroplaque extends JPanel {
     JTextField nameMicro;
     JButton ajouter;
 
-    public FormMicroplaque(MenuPrincipal leMenu) {
+    public FormMicroplaque(MenuTechnician leMenu) {
         myMenu = leMenu;
         controleur = new CtrlFormMicroplaque(this);
 
@@ -133,7 +133,7 @@ public class FormMicroplaque extends JPanel {
         //Partie gauche
         JLabel lesSamp = new JLabel("The samples");
         JComboBox listeSamp = new JComboBox();
-        for (Order or : myMenu.getListOrder()){
+        for (Order or : myMenu.getLeMenu2().getListOrder()){
             for (Sample samp : or.getSamples()){
                 listeSamp.addItem(samp.getIdSample());
             }
@@ -169,7 +169,7 @@ public class FormMicroplaque extends JPanel {
         this.add(panButtons,BorderLayout.SOUTH);
     }
     
-    public MenuPrincipal getLeMenuP(){
+    public MenuTechnician getLeMenuP(){
         return myMenu;
     }
     

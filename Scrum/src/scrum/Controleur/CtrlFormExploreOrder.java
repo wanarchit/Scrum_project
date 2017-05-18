@@ -25,7 +25,7 @@ public class CtrlFormExploreOrder implements ActionListener {
         if(e.getSource().equals(formulaire.getValidate())){
         	formulaire.validation();
         }else if(e.getSource().equals(formulaire.getRetour())){
-            formulaire.getMenuPrincipal().afficheMenuPrincipal();
+            formulaire.getMenuPrincipal().afficheMenuValidator();
         }
     }
 }
