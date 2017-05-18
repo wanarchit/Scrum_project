@@ -20,7 +20,7 @@ import scrum.noyau.SpecieCategory;
  *
  * @author Marin
  */
-public class FormSecondRead {
+public class FormSecondRead extends JPanel{
        
     private MenuTechnician myMenu;
     private CtrlFormSecondRead controleur;
@@ -30,7 +30,7 @@ public class FormSecondRead {
     
     public FormSecondRead(MenuTechnician leMenu){
         myMenu = leMenu;
-      ///  controleur = new CtrlFormSecondRead(this);//A creer 
+       controleur = new CtrlFormSecondRead(this);//A creer 
         
         JLabel headLabel = new JLabel("Second read");
         headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
@@ -95,20 +95,28 @@ public class FormSecondRead {
         
         JPanel panButValid = new JPanel();
         butValidate = new JButton("Validation");
-       // butValidate.addActionListener(controleur);
+        //butValidate.addActionListener(controleur);
         panButValid.add(butValidate);
         
         JPanel panButRetour = new JPanel();
         butRetour = new JButton("Retour");
-       // butRetour.addActionListener(controleur);
+        butRetour.addActionListener(controleur);
         panButRetour.add(butRetour);
         
         JPanel panButtons = new JPanel(new GridLayout(1,2));
         panButtons.add(panButRetour);
         panButtons.add(panButValid);
-       
-       /* this.setLayout(new BorderLayout());
+    
+        this.setLayout(new BorderLayout());
         this.add(headLabel,BorderLayout.NORTH);
         this.add(panForm,BorderLayout.CENTER);
-        this.add(panButtons,BorderLayout.SOUTH);*/
-}}
+        this.add(panButtons,BorderLayout.SOUTH);
+    }
+    public JButton getButRetour(){
+        return butRetour;
+    }
+    
+    public MenuTechnician getLeMenu(){
+        return myMenu;
+    }
+}
