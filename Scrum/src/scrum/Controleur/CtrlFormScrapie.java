@@ -21,22 +21,34 @@ public class CtrlFormScrapie implements ActionListener {
 
     
     public CtrlFormScrapie(FormScrapie form){
-        
+        myForm=form;
         
     }  
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(myForm.getButValider())){
-            if (myForm.getPosition().getText().isEmpty()) {
+            if ((myForm.getPosition().getText().isEmpty())|| (myForm.getValue().getText().isEmpty())) {
                 JOptionPane boiteDial = new JOptionPane();
-                boiteDial.showMessageDialog(null, "The position field is empty", "Add a position", JOptionPane.INFORMATION_MESSAGE);
+                boiteDial.showMessageDialog(null, "The position and/or the value field is empty", "Add a position", JOptionPane.INFORMATION_MESSAGE);
             }
             else{
-                
+                myForm.getLeMenu().afficheMenuPrincipal();
             }
         }
         else if (e.getSource().equals(myForm.getButRetour())) {
             myForm.getLeMenu().afficheMenuPrincipal();
+        }else if (e.getSource().equals(myForm.getButPeakNumber())){
+             if ((myForm.getPosition().getText().isEmpty())|| (myForm.getValue().getText().isEmpty())) {
+                JOptionPane boiteDial = new JOptionPane();
+                boiteDial.showMessageDialog(null, "The position and/or the value field is empty", "Add a position", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                     myForm.number = myForm.autoIncrementNumberPeak();
+            myForm.positionPeak.setText(""); 
+            myForm.valuePeak.setText("");
+            myForm.peakNumber.setText(""+myForm.number);
+             }
+        
+            
         }
     }
     

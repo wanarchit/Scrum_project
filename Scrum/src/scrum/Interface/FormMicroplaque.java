@@ -37,6 +37,7 @@ public class FormMicroplaque extends JPanel {
     JButton validateForm;
     JButton butRetour;
     JTextField nameMicro;
+    JButton ajouter;
 
     public FormMicroplaque(MenuPrincipal leMenu) {
         myMenu = leMenu;
@@ -137,11 +138,13 @@ public class FormMicroplaque extends JPanel {
                 listeSamp.addItem(samp.getIdSample());
             }
         }
-        listeSamp.setSize(100, 100);
+        
+        ajouter = new JButton("Add the sample");
 
-        JPanel panelGauche = new JPanel (new GridLayout(2,1));
-        panelGauche.add(lesSamp);
-        panelGauche.add(listeSamp);     
+        JPanel panelGauche = new JPanel (new BorderLayout());
+        panelGauche.add(lesSamp, BorderLayout.NORTH);
+        panelGauche.add(listeSamp, BorderLayout.CENTER);    
+        panelGauche.add(ajouter, BorderLayout.SOUTH); 
         
         
         // Creation of the button to return to the main menu and the validate button
