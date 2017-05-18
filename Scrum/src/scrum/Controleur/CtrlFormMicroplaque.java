@@ -30,18 +30,40 @@ public class CtrlFormMicroplaque implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(myForm.getButAdd())) {
-            if (arrayFinalSample.length > 0) {
-                System.out.println(arrayFinalSample[1].getAnalysis());
-                System.out.println(myForm.getAnaSelect());
-                if (arrayFinalSample[1].getAnalysis().equals(myForm.getAnaSelect())) {
-                    int i = 1;
+            int nbSampleSave = 0;
+            while (arrayFinalSample[nbSampleSave] != null && nbSampleSave < 8){
+                nbSampleSave++;
+            }
+            System.out.println("nbSample"+nbSampleSave);
+            if (nbSampleSave!=0) {
+                System.out.println(arrayFinalSample[0].getAnalysis());
+                if (arrayFinalSample[0].getAnalysis().equals(myForm.getAnaSelect())) {
+                    int i = 0;
                     while (arrayFinalSample[i] != null && i < arrayFinalSample.length) {
                         i++;
                     }
                     arrayFinalSample[i] = (myForm.getSampleSelect());
-                    
                     if (i==1){
-                        myForm.getButS1().setBackground(Color.WHITE);
+                        myForm.getLabS2().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                        myForm.getLabS2().setForeground(Color.red);
+                    }else if (i==2){
+                        myForm.getLabS3().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                        myForm.getLabS3().setForeground(Color.red);
+                    }else if (i==3){
+                        myForm.getLabS4().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                        myForm.getLabS4().setForeground(Color.red);
+                    }else if (i==4){
+                        myForm.getLabS5().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                        myForm.getLabS5().setForeground(Color.red);
+                    }else if (i==5){
+                        myForm.getLabS6().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                        myForm.getLabS6().setForeground(Color.red);
+                    }else if (i==6){
+                        myForm.getLabS7().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                        myForm.getLabS7().setForeground(Color.red);
+                    }else if (i==7){
+                        myForm.getLabS8().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                        myForm.getLabS8().setForeground(Color.red);
                     }
                     
                 } else {
@@ -49,10 +71,12 @@ public class CtrlFormMicroplaque implements ActionListener {
                     boiteDial.showMessageDialog(null, "The microplate must contain only one type of analysis", "Create microplate", JOptionPane.INFORMATION_MESSAGE);
                 }
             } else {
-                arrayFinalSample[1] = (myForm.getSampleSelect());
+                arrayFinalSample[0] = (myForm.getSampleSelect());
+                myForm.getLabS1().setText("Sample "+myForm.getSampleSelect().getIdSample());
+                myForm.getLabS1().setForeground(Color.red);
             }
 
-            if (arrayFinalSample.length == 8) {
+            if (nbSampleSave == 7) {
                 myForm.getButAdd().setEnabled(false);
             }
         }
@@ -69,8 +93,10 @@ public class CtrlFormMicroplaque implements ActionListener {
                     i++;
                     microP.addSample(arrayFinalSample[i]);
                 }
+                JOptionPane boiteDial = new JOptionPane();
+                boiteDial.showMessageDialog(null, "The microplate is registered", "Create microplate", JOptionPane.INFORMATION_MESSAGE);
+                myForm.getLeMenuP().afficheMenuPrincipal();
             }
-
         } else if (e.getSource().equals(myForm.getButRetour())) {
             myForm.getLeMenuP().afficheMenuPrincipal();
         }

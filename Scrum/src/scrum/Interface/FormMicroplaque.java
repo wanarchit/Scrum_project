@@ -30,14 +30,14 @@ public class FormMicroplaque extends JPanel {
 
     private MenuPrincipal myMenu;
     private CtrlFormMicroplaque controleur;
-    private JLabel butSample1;
-    private JLabel butSample2;
-    private JLabel butSample3;
-    private JLabel butSample4;
-    private JLabel butSample5;
-    private JLabel butSample6;
-    private JLabel butSample7;
-    private JLabel butSample8;
+    private JLabel labSample1;
+    private JLabel labSample2;
+    private JLabel labSample3;
+    private JLabel labSample4;
+    private JLabel labSample5;
+    private JLabel labSample6;
+    private JLabel labSample7;
+    private JLabel labSample8;
     private JButton validateForm;
     private JButton butRetour;
     private JTextField nameMicro;
@@ -63,73 +63,73 @@ public class FormMicroplaque extends JPanel {
         pan1.add(labName);
         pan1.add(nameMicro);
 
-        butSample1 = new JLabel("Sample 1");
-        butSample1.setBorder(border);
-        butSample1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        butSample2 = new JLabel("Sample 2");
-        butSample2.setBorder(border);
-        butSample2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        butSample3 = new JLabel("Sample 3");
-        butSample3.setBorder(border);
-        butSample3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        butSample4 = new JLabel("Sample 4");
-        butSample4.setBorder(border);
-        butSample4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        butSample5 = new JLabel("Sample 5");
-        butSample5.setBorder(border);
-        butSample5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        butSample6 = new JLabel("Sample 6");
-        butSample6.setBorder(border);
-        butSample6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        butSample7 = new JLabel("Sample 7");
-        butSample7.setBorder(border);
-        butSample7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        butSample8 = new JLabel("Sample 8");
-        butSample8.setBorder(border);
-        butSample8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample1 = new JLabel("Pos 1 empty");
+        labSample1.setBorder(border);
+        labSample1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample2 = new JLabel("Pos 2 empty");
+        labSample2.setBorder(border);
+        labSample2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample3 = new JLabel("Pos 3 empty");
+        labSample3.setBorder(border);
+        labSample3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample4 = new JLabel("Pos 4 empty");
+        labSample4.setBorder(border);
+        labSample4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample5 = new JLabel("Pos 5 empty");
+        labSample5.setBorder(border);
+        labSample5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample6 = new JLabel("Pos 6 empty");
+        labSample6.setBorder(border);
+        labSample6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample7 = new JLabel("Pos 7 empty");
+        labSample7.setBorder(border);
+        labSample7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labSample8 = new JLabel("Pos 8 empty");
+        labSample8.setBorder(border);
+        labSample8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         JPanel panelGeneral = new JPanel(new GridBagLayout());
         GridBagConstraints centre = new GridBagConstraints();
 
         centre.gridx = 0;
         centre.gridy = 0;
-        butSample1.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample1, centre);
+        labSample1.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample1, centre);
 
         centre.gridx = 1;
         centre.gridy = 0;
-        butSample2.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample2, centre);
+        labSample2.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample2, centre);
 
         centre.gridx = 2;
         centre.gridy = 0;
-        butSample3.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample3, centre);
+        labSample3.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample3, centre);
 
         centre.gridx = 3;
         centre.gridy = 0;
-        butSample4.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample4, centre);
+        labSample4.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample4, centre);
 
         centre.gridx = 0;
         centre.gridy = 1;
-        butSample5.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample5, centre);
+        labSample5.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample5, centre);
 
         centre.gridx = 1;
         centre.gridy = 1;
-        butSample6.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample6, centre);
+        labSample6.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample6, centre);
 
         centre.gridx = 2;
         centre.gridy = 1;
-        butSample7.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample7, centre);
+        labSample7.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample7, centre);
 
         centre.gridx = 3;
         centre.gridy = 1;
-        butSample8.setPreferredSize(new Dimension(100, 75));
-        panelGeneral.add(butSample8, centre);
+        labSample8.setPreferredSize(new Dimension(100, 75));
+        panelGeneral.add(labSample8, centre);
 
         JPanel panelDroite = new JPanel(new BorderLayout());
         panelDroite.add(pan1, BorderLayout.NORTH);
@@ -260,36 +260,36 @@ public class FormMicroplaque extends JPanel {
         return butRetour;
     }
 
-    public JLabel getButS1() {
-        return butSample1;
+    public JLabel getLabS1() {
+        return labSample1;
     }
 
-    public JLabel getButS2() {
-        return butSample2;
+    public JLabel getLabS2() {
+        return labSample2;
     }
 
-    public JLabel getButS3() {
-        return butSample3;
+    public JLabel getLabS3() {
+        return labSample3;
     }
 
-    public JLabel getButS4() {
-        return butSample4;
+    public JLabel getLabS4() {
+        return labSample4;
     }
 
-    public JLabel getButS5() {
-        return butSample5;
+    public JLabel getLabS5() {
+        return labSample5;
     }
 
-    public JLabel getButS6() {
-        return butSample6;
+    public JLabel getLabS6() {
+        return labSample6;
     }
 
-    public JLabel getButS7() {
-        return butSample7;
+    public JLabel getLabS7() {
+        return labSample7;
     }
 
-    public JLabel getButS8() {
-        return butSample8;
+    public JLabel getLabS8() {
+        return labSample8;
     }
 
     public JButton getButAdd() {
