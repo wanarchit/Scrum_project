@@ -34,7 +34,7 @@ public class CtrlFormCategory implements ActionListener{
             }
             else{
                 for(SpecieCategory cat : myForm.getLeMenuP().getLeMenu2().getListCategory()){
-                    if(cat.getName().equals(Category)){
+                    if(cat.getName().toLowerCase().equals(Category)){
                         validation = false;
                         JOptionPane boiteDial = new JOptionPane();
                         boiteDial.showMessageDialog(null, "Specie's category already exists !", "Create category", JOptionPane.INFORMATION_MESSAGE);

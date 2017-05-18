@@ -89,9 +89,9 @@ public class CtrlFormMicroplaque implements ActionListener {
                 Microplaque microP = new Microplaque(myForm.getNameMicro().getText());
                 myForm.getLeMenuP().getLeMenu2().getListMicroplaques().add(microP);
                 int i = 0;
-                while (arrayFinalSample[i] != null && i < arrayFinalSample.length) {
-                    i++;
+                while (i < arrayFinalSample.length && arrayFinalSample[i] != null) {
                     microP.addSample(arrayFinalSample[i]);
+                    i++;
                 }
                 JOptionPane boiteDial = new JOptionPane();
                 boiteDial.showMessageDialog(null, "The microplate is registered", "Create microplate", JOptionPane.INFORMATION_MESSAGE);

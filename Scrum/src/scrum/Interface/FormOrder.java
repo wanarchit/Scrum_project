@@ -55,14 +55,12 @@ public class FormOrder extends JPanel {
      * The constructor of the class
      *
      * @param menu The main menu of our interface, to allow the redirection
-     * @param listAnalysis All the analysys available on the application
-     * @param listCategory All the categories available on the application
      */
-    public FormOrder(MenuSecretary menu,ArrayList<Analysis> listAnalysis, ArrayList<SpecieCategory> listCategory, ArrayList<Customer2> listCustomer){
+    public FormOrder(MenuSecretary menu){
     	this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
     	this.myMenu = menu;
         this.controleur = new CtrlFormOrder(this);
-        this.listAnalysis = listAnalysis;
+        this.listAnalysis = menu.getLeMenu2().getListAnalysis();
         
         // Title of the panel
         JLabel labelTitle = new JLabel("New order");
@@ -79,9 +77,9 @@ public class FormOrder extends JPanel {
         
         // Creation of the JCombobox for all the customer
         customers = new JComboBox<Customer2>();
-        for (Customer2 customer2 : listCustomer) {
-        	customers.addItem(customer2);
-		}
+        for (Customer2 customer2 : menu.getLeMenu2().getListCustomer()) {
+            customers.addItem(customer2);
+        }
         
         JLabel titleCust = new JLabel("Customer :    ");
 
@@ -122,8 +120,7 @@ public class FormOrder extends JPanel {
 
         // Creation of the JCombobox for all the category
         category = new JComboBox<SpecieCategory>();
-        category.addActionListener(
-                new ActionListener() {
+        category.addActionListener( new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JComboBox combo = (JComboBox) e.getSource();
                 SpecieCategory categoryChoose = (SpecieCategory) combo.getSelectedItem();
@@ -179,7 +176,7 @@ public class FormOrder extends JPanel {
         
         // Initialization of the field
         int compteur = 0;
-        for (SpecieCategory specieCategory : listCategory) {
+        for (SpecieCategory specieCategory : menu.getLeMenu2().getListCategory()) {
             if (compteur == 0) {
                 majSpecies(specieCategory);
                 majAnalysis((Specie) species.getSelectedItem());
