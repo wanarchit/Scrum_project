@@ -18,7 +18,7 @@ public class CtrlFormSecondRead implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(myForm.getButRetour())){
-            myForm.getLeMenu().afficheMenuTechnician();
+            myForm.getLeMenu().afficheMenuValidator();
         }
     }
 }

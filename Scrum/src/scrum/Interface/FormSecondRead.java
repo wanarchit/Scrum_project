@@ -2,14 +2,12 @@ package scrum.Interface;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import scrum.Controleur.CtrlFormSecondRead;
@@ -20,82 +18,49 @@ import scrum.noyau.SpecieCategory;
  *
  * @author Marin
  */
-public class FormSecondRead extends JPanel{
+public class FormSecondRead extends JPanel {
        
-    private MenuTechnician myMenu;
+    private MenuValidator myMenu;
     private CtrlFormSecondRead controleur;
-    private JTextField nameCategory;
     private JButton butValidate;
     private JButton butRetour;
+    private JRadioButton jr1;
+    private JRadioButton jr2;
     
-    public FormSecondRead(MenuTechnician leMenu){
+    public FormSecondRead(MenuValidator leMenu){
         myMenu = leMenu;
-       controleur = new CtrlFormSecondRead(this);//A creer 
-        
+        controleur = new CtrlFormSecondRead(this);//A creer 
+        JPanel panForm = new JPanel(new BorderLayout());
+        JPanel panChoix= new JPanel(new BorderLayout());
         JLabel headLabel = new JLabel("Second read");
         headLabel.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
         headLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        
+        JPanel headPanel = new JPanel(new BorderLayout());
+        headPanel.add(headLabel, BorderLayout.NORTH);
         JLabel title1 = new JLabel("Type de test:");
-        
+        title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headPanel.add(title1, BorderLayout.SOUTH);
+        jr1 = new JRadioButton("Sexing Test");
+        jr1.addActionListener(controleur);
+        panChoix.add(jr1, BorderLayout.NORTH);
+        jr2 = new JRadioButton("Scrapie Test");
+        jr2.addActionListener(controleur);
+        panChoix.add(jr2);
+        headPanel.add(panChoix, BorderLayout.WEST);
         JComboBox listPlate = new JComboBox();
         for (Microplaque plates : myMenu.getLeMenu2().getListMicroplaques()) {
             listPlate.addItem(plates.getName());
         }
         listPlate.setSize(100, 100);
-        
-       // JLabel title2 = new JLabel("Result"++"/7" );//
-        
-        JPanel panForm = new JPanel(new BorderLayout());
-        JPanel panCenterForm = new JPanel(new GridBagLayout());
-        
-        JPanel panCategory = new JPanel(); 
-        JPanel panCategoryField = new JPanel();
-        
-        JPanel panCatExist = new JPanel();
-        
-
-        nameCategory = new JTextField(20);
-        panCategory.add(new JLabel("Category name :  "));
-        panCategoryField.add(nameCategory);
-        
-                
-        panCatExist.add(new JLabel("Categories already exist :  "));
-        JComboBox listeCat = new JComboBox();
-        for (SpecieCategory diffCat : myMenu.getLeMenu2().getListCategory()) {
-            listeCat.addItem(diffCat.getName());
-        }
-        listeCat.setSize(100, 100);
-        JPanel panComboBox = new JPanel();
-        panComboBox.add(listeCat);
-        
-        GridBagConstraints RightCenter = new GridBagConstraints();
-        RightCenter.anchor = GridBagConstraints.LINE_END;
-        RightCenter.gridx = 0;
-        RightCenter.gridy = 0;
-        
-        GridBagConstraints LeftCenter = new GridBagConstraints();
-        LeftCenter.anchor = GridBagConstraints.LINE_START;
-        LeftCenter.gridx = 1;
-        LeftCenter.gridy = 0;
-        
-        panCenterForm.add(panCategory,RightCenter);
-        panCenterForm.add(panCategoryField,LeftCenter);
-        
-        RightCenter.gridx = 0;
-        RightCenter.gridy = 1;
-        
-        panCenterForm.add(panCatExist,RightCenter);
-        
-        LeftCenter.gridx = 1;
-        LeftCenter.gridy = 1;
-        panCenterForm.add(panComboBox,LeftCenter);
-        
-        panForm.add(panCenterForm,BorderLayout.CENTER);
-        
+        JPanel panCombo= new JPanel();
+        panCombo.add(listPlate);
+        panForm.add(panCombo,BorderLayout.EAST);
+        JLabel title2 = new JLabel("Result's iteration" );//
+        panForm.add(title2);
+              
         JPanel panButValid = new JPanel();
         butValidate = new JButton("Validation");
-        //butValidate.addActionListener(controleur);
+       // butValidate.addActionListener(controleur);
         panButValid.add(butValidate);
         
         JPanel panButRetour = new JPanel();
@@ -106,17 +71,21 @@ public class FormSecondRead extends JPanel{
         JPanel panButtons = new JPanel(new GridLayout(1,2));
         panButtons.add(panButRetour);
         panButtons.add(panButValid);
-    
+       
         this.setLayout(new BorderLayout());
-        this.add(headLabel,BorderLayout.NORTH);
+        this.add(headPanel,BorderLayout.NORTH);
         this.add(panForm,BorderLayout.CENTER);
         this.add(panButtons,BorderLayout.SOUTH);
-    }
+    } 
+    public JButton getButValider(){
+        return butValidate;
+    } 
+    
     public JButton getButRetour(){
         return butRetour;
     }
     
-    public MenuTechnician getLeMenu(){
+    public MenuValidator getLeMenu(){
         return myMenu;
     }
 }

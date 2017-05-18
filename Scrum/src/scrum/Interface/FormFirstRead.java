@@ -31,7 +31,7 @@ public class FormFirstRead extends JPanel{
         JPanel panHead = new JPanel();
         panHead.add(new JLabel("FIRST READ"));
         
-        //choixMP = new SelectMicroplate(myMenu);
+        choixMP = new SelectMicroplate(myMenu);
         
         
         // info sample
@@ -76,7 +76,12 @@ public class FormFirstRead extends JPanel{
         
         JPanel panDroite = new JPanel();
         
-        panDroite.add(new JLabel("toto"));
+        panDroite.add(new JLabel("panTypeTest"));
+        panDroite.add(panIdSample);
+        panDroite.add(panValNorm);
+        panDroite.add(panValX);
+        panDroite.add(panInterpX);
+        
         // fin info sample
         
         

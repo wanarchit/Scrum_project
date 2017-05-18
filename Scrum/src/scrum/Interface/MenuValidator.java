@@ -33,6 +33,7 @@ public class MenuValidator extends JPanel {
      private JButton butExploreOrder;
     private JButton butFormScrapie;
     private JButton butFormSexingTest;
+    private JButton butFormSecondRead;
     private JButton butRetour;
     private CtrlMenuValidator controleur;
     
@@ -56,15 +57,18 @@ public class MenuValidator extends JPanel {
         butFormScrapie.addActionListener(controleur);
         butFormSexingTest = new JButton ("Create Sexing Test");
         butFormSexingTest.addActionListener(controleur);
+        butFormSecondRead = new JButton ("Second Read");
+        butFormSecondRead.addActionListener(controleur);
   
         
         panButRetour.add(butRetour);
         
-        this.setLayout(new GridLayout(5,1));
+        this.setLayout(new GridLayout(6,1));
         this.add(textMenu);
         this.add(butExploreOrder);
         this.add(butFormScrapie);
         this.add(butFormSexingTest);
+        this.add(butFormSecondRead);
         this.add(panButRetour);
 
         
@@ -85,6 +89,10 @@ public class MenuValidator extends JPanel {
         return butFormSexingTest;
     }
     
+    public JButton getbutFormSecondRead(){
+        return butFormSecondRead;
+    }
+    
       public void afficheExploreOrder(){
         FormExploreOrder expl = new FormExploreOrder(this);
        fenetreMain.setContentPane(expl);
@@ -103,8 +111,15 @@ public class MenuValidator extends JPanel {
        fenetreMain.repaint();
         fenetreMain.revalidate();
    }
-             public void afficheMenuValidator(){
+    public void afficheMenuValidator(){
         fenetreMain.setContentPane(this);
+        fenetreMain.repaint();
+        fenetreMain.revalidate();
+    }
+    
+    public void afficheSecondRead(){
+        FormSecondRead formSecondRead = new FormSecondRead(this);
+        fenetreMain.setContentPane(formSecondRead);
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }

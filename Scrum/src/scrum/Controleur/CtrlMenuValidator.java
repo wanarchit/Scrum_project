@@ -37,6 +37,8 @@ public class CtrlMenuValidator implements ActionListener {
             leMenu.afficheFormSexingTest();
         }else if (e.getSource().equals(leMenu.getButRetour())){
             leMenu.getLeMenu2().afficheMenuPrincipal2();
+        }else if(e.getSource().equals(leMenu.getbutFormSecondRead())){
+            leMenu.afficheSecondRead();
         }
             
     
