@@ -106,7 +106,7 @@ public class Sample {
 
     @Override
     public String toString() {
-        String id = ""+idSample+" "+this.getResult();
+        String id = ""+idSample+getResult();
         return id;
     }
 }

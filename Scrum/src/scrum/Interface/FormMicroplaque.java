@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
@@ -16,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import scrum.Controleur.CtrlFormMicroplaque;
+import scrum.noyau.Analysis;
 import scrum.noyau.Order;
 import scrum.noyau.Sample;
 
@@ -40,6 +43,8 @@ public class FormMicroplaque extends JPanel {
     private JTextField nameMicro;
     private JButton ajouter;
     private JComboBox<Sample> listeSamp;
+    private JComboBox<Analysis> listeAna;
+    private ArrayList<Sample> myListSample;
 
     public FormMicroplaque(MenuPrincipal leMenu) {
         myMenu = leMenu;
@@ -131,45 +136,64 @@ public class FormMicroplaque extends JPanel {
         panelDroite.add(panelGeneral, BorderLayout.CENTER);
 
         //Partie gauche
-        JLabel lesSamp = new JLabel("The samples");
-        ArrayList<Order> myListOrder = myMenu.getListOrder();
-        ArrayList<Sample> myListSample = new ArrayList();
+        JLabel lesAna = new JLabel("The analysis");
+        lesAna.setPreferredSize(new Dimension(75, 75));
 
+        JLabel lesSamp = new JLabel("The samples");
+        lesSamp.setPreferredSize(new Dimension(75, 75));
+
+        ArrayList<Order> myListOrder = myMenu.getListOrder();
+        ArrayList<Analysis> myListAna = myMenu.getListAnalysis();
+
+        myListSample = new ArrayList();
         for (Order or : myListOrder) {
             for (Sample samp : or.getSamples()) {
                 myListSample.add(samp);
             }
         }
 
-        ArrayList<Sample> sampPrio = new ArrayList();
-        ArrayList<Sample> sampAutre = new ArrayList();
-
-        for (Sample samp : myListSample) {
-            //ResultStatut 
-            if (samp.getResults().size() > 0) {
-                if (samp.getResults().get((samp.getResults().size())-1).getStatus().equals("UNREADABLE")) {
-                    sampPrio.add(samp);
-                }
-            } else {
-                sampAutre.add(samp);
+        //COMBO BOX ANALYSE
+        listeAna = new JComboBox<Analysis>();
+        for (Analysis ana : myListAna) {
+            listeAna.addItem(ana);
+        }
+        listeAna.addActionListener(
+                new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox combo = (JComboBox) e.getSource();
+                Analysis anaChoose = (Analysis) combo.getSelectedItem();
+                majSample(anaChoose);
             }
         }
+        );
 
+        // COMBO BOX SAMPLES
         listeSamp = new JComboBox<>();
-        for (Sample samp : sampPrio) {
-            listeSamp.addItem(samp);
-        }
-
-        for (Sample samp : sampAutre) {
-            listeSamp.addItem(samp);
-        }
 
         ajouter = new JButton("Add the sample");
+        ajouter.addActionListener(controleur);
 
-        JPanel panelGauche = new JPanel(new BorderLayout());
-        panelGauche.add(lesSamp, BorderLayout.NORTH);
-        panelGauche.add(listeSamp, BorderLayout.CENTER);
-        panelGauche.add(ajouter, BorderLayout.SOUTH);
+        JPanel panelGauche = new JPanel(new GridBagLayout());
+
+        centre.gridx = 0;
+        centre.gridy = 0;
+        panelGauche.add(lesAna, centre);
+
+        centre.gridx = 0;
+        centre.gridy = 1;
+        panelGauche.add(listeAna, centre);
+
+        centre.gridx = 0;
+        centre.gridy = 2;
+        panelGauche.add(lesSamp, centre);
+
+        centre.gridx = 0;
+        centre.gridy = 3;
+        panelGauche.add(listeSamp, centre);
+
+        centre.gridx = 0;
+        centre.gridy = 4;
+        panelGauche.add(ajouter, centre);
 
         // Creation of the button to return to the main menu and the validate button
         JPanel panButValid = new JPanel();
@@ -191,6 +215,37 @@ public class FormMicroplaque extends JPanel {
         this.add(panelDroite, BorderLayout.CENTER);
         this.add(panelGauche, BorderLayout.WEST);
         this.add(panButtons, BorderLayout.SOUTH);
+    }
+
+    /**
+     * Function to allow the modification
+     *
+     * @param anaChoose The analysis choosen
+     */
+    private void majSample(Analysis anaChoose) {
+        listeSamp.removeAllItems();
+        ArrayList<Sample> sampPrio = new ArrayList();
+        ArrayList<Sample> sampAutre = new ArrayList();
+
+        for (Sample samp : myListSample) {
+            if (samp.getAnalysis().equals(anaChoose)) {
+                //ResultStatut 
+                if (samp.getResults().size() > 0) {
+                    if (samp.getResults().get((samp.getResults().size()) - 1).getStatus().equals("UNREADABLE")) {
+                        sampPrio.add(samp);
+                    }
+                } else {
+                    sampAutre.add(samp);
+                }
+            }
+        }
+        for (Sample sample : sampPrio) {
+            listeSamp.addItem(sample);
+        }
+
+        for (Sample sample : sampAutre) {
+            listeSamp.addItem(sample);
+        }
     }
 
     public MenuPrincipal getLeMenuP() {
@@ -239,5 +294,17 @@ public class FormMicroplaque extends JPanel {
 
     public JButton getButAdd() {
         return ajouter;
+    }
+
+    public Analysis getAnaSelect() {
+        return (Analysis) listeAna.getSelectedItem();
+    }
+
+    public Sample getSampleSelect() {
+        return (Sample) listeSamp.getSelectedItem();
+    }
+    
+    public JTextField getNameMicro(){
+        return nameMicro;
     }
 }

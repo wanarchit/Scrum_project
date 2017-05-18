@@ -22,7 +22,7 @@ public abstract class Analysis {
   }
   
   public final String toString(){
-	  return getName();
+	  return getName()+getSpecie();
   }
 
   public Analysis(Specie s) {
