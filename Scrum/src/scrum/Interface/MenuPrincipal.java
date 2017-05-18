@@ -60,6 +60,14 @@ public class MenuPrincipal extends JPanel{
         listAnalysis = model.getAnalyses();
         listCategory = model.getCategory();
         listMicroplaques = new ArrayList();
+        Microplaque mp1 = new Microplaque("mic1");
+        Microplaque mp2 = new Microplaque("mic2");
+        Microplaque mp3 = new Microplaque("mic3");
+        Microplaque mp4 = new Microplaque("mic4");
+        listMicroplaques.add(mp1);
+        listMicroplaques.add(mp2);
+        listMicroplaques.add(mp3);
+        listMicroplaques.add(mp4);
                 
         JLabel textMenu = new JLabel("Main menu");
         textMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
