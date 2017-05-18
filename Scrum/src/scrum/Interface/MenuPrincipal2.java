@@ -53,10 +53,10 @@ public class MenuPrincipal2 extends JPanel {
         controleur = new CtrlMenuPrincipal2(this);
         
         // Import of data
-        listCustomer = new ArrayList <Customer2> (model.getCustomer());
+        listCustomer = model.getCustomer();
         listOrder = new ArrayList();
         listSpecie = new ArrayList();
-        listCategory = new ArrayList <SpecieCategory> (model.getCategory());
+        listCategory = model.getCategory();
         listMicroplaques = new ArrayList();
         listAnalysis = model.getAnalyses();
                 

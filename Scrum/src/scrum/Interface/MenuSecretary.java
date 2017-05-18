@@ -102,7 +102,7 @@ public class MenuSecretary extends JPanel {
     }
     
     public void afficheFormOrder(){
-    	FormOrder newForm = new FormOrder(this,model.getAnalyses(),model.getCategory(),menu2.getListCustomer());
+    	FormOrder newForm = new FormOrder(this);
         fenetreMain.setContentPane(newForm);
         fenetreMain.repaint();
         fenetreMain.revalidate();

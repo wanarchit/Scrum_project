@@ -70,5 +70,16 @@ public abstract class Result {
 		readNumber++;
 	}
   }
+  
+  public String toString(){
+      if(status == null)
+          return "";
+      else if(status == ResultStatus.UNREADABLE)
+          return "UNREADABLE";
+      else if(status == ResultStatus.READABLE)
+          return "READABLE";
+      else
+          return "VALIDATED";
+  }
 
 }

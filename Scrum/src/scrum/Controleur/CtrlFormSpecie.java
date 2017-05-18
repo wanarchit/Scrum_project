@@ -41,15 +41,16 @@ public class CtrlFormSpecie implements ActionListener {
                         finalSpecieName += words2[i];
                     }
                 }
-
-                ArrayList<Specie> listSpecie = monFormulaire.getLeMenu().getLeMenu2().getListSpecie();
+                
                 boolean nameVal = true;
-                for (Specie spec : listSpecie) {
-                    if (spec.getName().equals(finalSpecieName)) {
-                        nameVal = false;
+                for (SpecieCategory speCat : monFormulaire.getLeMenu().getLeMenu2().getListCategory()) {
+                    for (Specie specy : speCat.getSpecies()) {
+                        if (specy.getName().equals(finalSpecieName)) {
+                            nameVal = false;
+                        }
                     }
                 }
-
+                
                 if (nameVal) {
                     Specie newSpecie = new Specie(finalSpecieName);
                     monFormulaire.getLeMenu().getLeMenu2().getListSpecie().add(newSpecie);

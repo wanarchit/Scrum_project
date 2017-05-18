@@ -19,7 +19,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import scrum.Controleur.CtrlFormMicroplaque;
 import scrum.noyau.Analysis;
+import scrum.noyau.Customer;
 import scrum.noyau.Order;
+import scrum.noyau.ResultStatus;
 import scrum.noyau.Sample;
 
 /**
@@ -141,16 +143,17 @@ public class FormMicroplaque extends JPanel {
 
         JLabel lesSamp = new JLabel("The samples");
         lesSamp.setPreferredSize(new Dimension(75, 75));
-
-        ArrayList<Order> myListOrder = myMenu.getLeMenu2().getListOrder();
         
         ArrayList<Analysis> myListAna = myMenu.getLeMenu2().getListAnalysis();
 
-        myListSample = new ArrayList();
-        for (Order or : myListOrder) {
-            System.out.println("ID or :"+or.getId());
-            for (Sample samp : or.getSamples()) {
-                myListSample.add(samp);
+        myListSample = new ArrayList<Sample>();
+        for (Customer cust : myMenu.getLeMenu2().getListCustomer()) {
+            for (Order order : cust.getOrders()) {
+                if(order.getSamples() != null){
+                    for (Sample samp : order.getSamples()) {
+                        myListSample.add(samp);
+                    }
+                }
             }
         }
 
@@ -226,25 +229,19 @@ public class FormMicroplaque extends JPanel {
      */
     private void majSample(Analysis anaChoose) {
         listeSamp.removeAllItems();
-        ArrayList<Sample> sampPrio = new ArrayList();
-        ArrayList<Sample> sampAutre = new ArrayList();
-
-        for (Sample samp : myListSample) {
-            System.out.println("For1");
-            System.out.println("samp.getAnalyse() |"+samp.getAnalysis().getSpecie()+"|  |"+samp.getAnalysis().getName()+"|");
-            System.out.println("anaChoose |"+anaChoose.getSpecie()+"|  |"+anaChoose.getName()+"|");
-            if ((samp.getAnalysis().getName().equals(anaChoose.getName())) && (samp.getAnalysis().getSpecie().equals(anaChoose.getSpecie()))) {
-                System.out.println("if1");
-                //ResultStatut 
-                if (samp.getResults().size() > 0) {
-                    System.out.println("if2");
-                    if (samp.getResults().get((samp.getResults().size()) - 1).getStatus().equals("UNREADABLE")) {
-                        System.out.println("if3");
-                        sampPrio.add(samp);
+        ArrayList<Sample> sampPrio = new ArrayList<Sample>();
+        ArrayList<Sample> sampAutre = new ArrayList<Sample>();
+        for (Sample sample : myListSample) {
+            if (sample.getAnalysis().equals(anaChoose)) {
+                if (!sample.getResults().isEmpty()) {
+                    if(sample.getResults().get((sample.getResults().size()) - 1).getStatus() != null){
+                        if (sample.getResults().get((sample.getResults().size()) - 1).getStatus().equals(ResultStatus.UNREADABLE))
+                            sampPrio.add(sample);
+                        else
+                            sampAutre.add(sample);
                     }
-                } else {
-                    System.out.println("else2");
-                    sampAutre.add(samp);
+                    else
+                        sampAutre.add(sample);
                 }
             }
         }
