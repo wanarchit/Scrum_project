@@ -18,7 +18,7 @@ public class TestOrder {
 
     @Before
     public void setUp() {
-        cust = new Customer2("nom", "ville");
+        //cust = new Customer2("nom", "ville");
         order = new Order(cust);
     }
 

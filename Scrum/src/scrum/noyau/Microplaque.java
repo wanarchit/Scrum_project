@@ -41,4 +41,9 @@ public class Microplaque {
     public Sample[] getSamples() {
         return arraySamp;
     }
+    
+    @Override
+    public String toString(){
+	  return namePlate;
+  }
 }

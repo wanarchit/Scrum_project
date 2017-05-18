@@ -112,6 +112,8 @@ public class MenuTechnician extends JPanel {
           public JButton getButFormFirstRead(){
     	return butFormFirstRead;
     }
+          
+          
      
  
 }
