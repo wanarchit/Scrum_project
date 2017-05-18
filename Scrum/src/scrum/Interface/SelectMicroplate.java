@@ -18,17 +18,17 @@ public class SelectMicroplate extends JPanel implements ActionListener{
     
     private ArrayList<Microplaque> listMicroplates;
     private JComboBox<Microplaque> listMPCombo;
-    private MenuPrincipal myMenu;
+    private MenuTechnician myMenu;
     private JButton butSamp1,butSamp2,butSamp3,butSamp4,butSamp5,butSamp6,butSamp7,butSamp8;
     
-    public SelectMicroplate(MenuPrincipal leMenu){
+    public SelectMicroplate(MenuTechnician leMenu){
         myMenu = leMenu;
         //listMicroplates = lesMP;
         
         
         JPanel panListMP = new JPanel();
         listMPCombo = new JComboBox();
-        for (Microplaque microPl : myMenu.getListMicroplaques()) {
+        for (Microplaque microPl : myMenu.getLeMenu2().getListMicroplaques()) {
         	listMPCombo.addItem(microPl);
         }
         panListMP.add(listMPCombo);
@@ -37,7 +37,7 @@ public class SelectMicroplate extends JPanel implements ActionListener{
         panChoixMPGlobal.add(new JLabel("Microplaque : "));
         panChoixMPGlobal.add(panListMP);
         
-        if (myMenu.getListMicroplaques().isEmpty()){
+        if (myMenu.getLeMenu2().getListMicroplaques().isEmpty()){
             // Mettre message comme quoi il n'y a pas de microplaques
         }else{
             

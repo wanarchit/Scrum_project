@@ -50,7 +50,7 @@ public class MenuTechnician extends JPanel {
         butRetour = new JButton("Retour");
         butRetour.addActionListener(controleur);
         
-        JLabel textMenu = new JLabel("STechnician menu");
+        JLabel textMenu = new JLabel("Technician Menu");
         textMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         butFormMicroplaque = new JButton ("Create Microplaque");
         butFormMicroplaque.addActionListener(controleur);

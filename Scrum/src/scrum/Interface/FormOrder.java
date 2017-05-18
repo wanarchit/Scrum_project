@@ -36,7 +36,7 @@ import scrum.noyau.SpecieCategory;
  */
 public class FormOrder extends JPanel {
 
-    MenuSecretary myMenu;
+    private MenuSecretary myMenu;
     private CtrlFormOrder controleur;
     private JTextField nameOrder;
     private JTextField numberSample;
@@ -281,7 +281,7 @@ public class FormOrder extends JPanel {
                         samples.add(new Sample((Analysis) analysis.getSelectedItem(), (Specie) species.getSelectedItem(), ord));
                     }
                     ord.setSamples(samples);
-                    myMenu.addOrder((Customer2) customers.getSelectedItem(),ord);
+                    myMenu.getLeMenu2().addOrder((Customer2) customers.getSelectedItem(),ord);
                     myMenu.afficheMenuSecretary();
                 }	
             }

@@ -120,12 +120,12 @@ public class MenuSecretary extends JPanel {
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
-      public void addOrder(Customer customer, Order newOrder){
-        ArrayList<Order> listOrder = new ArrayList<Order> ();
-        listOrder = menu2.getListOrder();
-    	listOrder.add(newOrder);
-    	customer.addOrder(newOrder);
-    }
+//      public void addOrder(Customer customer, Order newOrder){
+//        ArrayList<Order> listOrder = new ArrayList<Order> ();
+//        listOrder = menu2.getListOrder();
+//    	listOrder.add(newOrder);
+//    	customer.addOrder(newOrder);
+//    }
 
 	public void goListOrder(Customer customer) {
             new ListOrder(customer);
@@ -135,7 +135,8 @@ public class MenuSecretary extends JPanel {
         fenetreMain.repaint();
         fenetreMain.revalidate();
     }
-        public MenuPrincipal2 getLeMenu2(){
+          
+    public MenuPrincipal2 getLeMenu2(){
         return menu2;
     }
          public JButton getButRetour(){

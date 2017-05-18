@@ -155,10 +155,29 @@ public class MenuPrincipal2 extends JPanel {
     	customer.addOrder(newOrder);
     }
 
-	public void goListOrder(Customer customer) {
-            new ListOrder(customer);
-	}
-      public void afficheMenuPrincipal2(){
+    public void goListOrder(Customer customer) {
+        new ListOrder(customer);
+    }
+    
+    public void afficheMenuPrincipal2(){
+        
+        System.out.println("Les customers:");
+        for(Customer2 cus :listCustomer ){
+            System.out.println(cus.getName());
+        }
+        System.out.println("Les Order:");
+        for(Order ord :listOrder ){
+            System.out.println(ord.getId());
+        }
+        System.out.println("Les Microplaques:");
+        for(Microplaque mp :listMicroplaques ){
+            System.out.println(mp.getName());
+        }
+        
+        //System.out.println(listSpecie);
+        //System.out.println(listCategory);
+       // System.out.println(listMicroplaques);
+        //System.out.println(listAnalysis);
       fenetreMain.setContentPane(this);
       fenetreMain.repaint();
       fenetreMain.revalidate();

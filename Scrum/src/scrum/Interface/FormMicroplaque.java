@@ -143,10 +143,12 @@ public class FormMicroplaque extends JPanel {
         lesSamp.setPreferredSize(new Dimension(75, 75));
 
         ArrayList<Order> myListOrder = myMenu.getLeMenu2().getListOrder();
+        
         ArrayList<Analysis> myListAna = myMenu.getLeMenu2().getListAnalysis();
 
         myListSample = new ArrayList();
         for (Order or : myListOrder) {
+            System.out.println("ID or :"+or.getId());
             for (Sample samp : or.getSamples()) {
                 myListSample.add(samp);
             }
@@ -228,22 +230,31 @@ public class FormMicroplaque extends JPanel {
         ArrayList<Sample> sampAutre = new ArrayList();
 
         for (Sample samp : myListSample) {
-            if (samp.getAnalysis().equals(anaChoose)) {
+            System.out.println("For1");
+            System.out.println("samp.getAnalyse() |"+samp.getAnalysis().getSpecie()+"|  |"+samp.getAnalysis().getName()+"|");
+            System.out.println("anaChoose |"+anaChoose.getSpecie()+"|  |"+anaChoose.getName()+"|");
+            if ((samp.getAnalysis().getName().equals(anaChoose.getName())) && (samp.getAnalysis().getSpecie().equals(anaChoose.getSpecie()))) {
+                System.out.println("if1");
                 //ResultStatut 
                 if (samp.getResults().size() > 0) {
+                    System.out.println("if2");
                     if (samp.getResults().get((samp.getResults().size()) - 1).getStatus().equals("UNREADABLE")) {
+                        System.out.println("if3");
                         sampPrio.add(samp);
                     }
                 } else {
+                    System.out.println("else2");
                     sampAutre.add(samp);
                 }
             }
         }
         for (Sample sample : sampPrio) {
+            System.out.println("for sampPrio");
             listeSamp.addItem(sample);
         }
 
         for (Sample sample : sampAutre) {
+            System.out.println("for sampAutre");
             listeSamp.addItem(sample);
         }
     }

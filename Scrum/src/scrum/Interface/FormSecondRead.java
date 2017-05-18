@@ -22,13 +22,13 @@ import scrum.noyau.SpecieCategory;
  */
 public class FormSecondRead {
        
-    MenuPrincipal myMenu;
+    private MenuTechnician myMenu;
     private CtrlFormSecondRead controleur;
     private JTextField nameCategory;
     private JButton butValidate;
     private JButton butRetour;
     
-    public FormSecondRead(MenuPrincipal leMenu){
+    public FormSecondRead(MenuTechnician leMenu){
         myMenu = leMenu;
       ///  controleur = new CtrlFormSecondRead(this);//A creer 
         
@@ -39,7 +39,7 @@ public class FormSecondRead {
         JLabel title1 = new JLabel("Type de test:");
         
         JComboBox listPlate = new JComboBox();
-        for (Microplaque plates : myMenu.getListMicroplaques()) {
+        for (Microplaque plates : myMenu.getLeMenu2().getListMicroplaques()) {
             listPlate.addItem(plates.getName());
         }
         listPlate.setSize(100, 100);
@@ -62,7 +62,7 @@ public class FormSecondRead {
                 
         panCatExist.add(new JLabel("Categories already exist :  "));
         JComboBox listeCat = new JComboBox();
-        for (SpecieCategory diffCat : myMenu.getListCategory()) {
+        for (SpecieCategory diffCat : myMenu.getLeMenu2().getListCategory()) {
             listeCat.addItem(diffCat.getName());
         }
         listeCat.setSize(100, 100);
